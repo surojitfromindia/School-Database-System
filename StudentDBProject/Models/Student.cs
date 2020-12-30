@@ -154,5 +154,13 @@ namespace StudentDBProject.Models
 
             return sl;
         }
+
+        public static int GetNoOfStudents()
+        {
+            string ss = "select count(*) from Student";
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
+            int i = (int)cmd.ExecuteScalar();
+            return i;
+        }
     }
 }

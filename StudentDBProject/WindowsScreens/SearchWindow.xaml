@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
              mc:Ignorable="d" 
-             d:DesignHeight="487.5" d:DesignWidth="900">
+             d:DesignHeight="533.784" d:DesignWidth="900">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -34,8 +34,8 @@
                 </WrapPanel>
             </ScrollViewer>
             <StackPanel Grid.Column="1" Width="200" Margin="10,10,0,0">
-                <Label Content="66 Records Found" Padding="0,5,5,5" Foreground="#FF125EAA"/>
-                <ListBox x:Name="listStudent"  Height="365" Width="200" SelectionChanged="listStudent_SelectionChanged">
+                <Label Name="lblNoOfStudents" Content="" Padding="0,5,5,5" Foreground="#FF125EAA"/>
+                <ListBox x:Name="listStudent"  Height="375" Width="200" SelectionChanged="listStudent_SelectionChanged">
                     
                 </ListBox>
                 <Grid Margin="0,10,0,0">

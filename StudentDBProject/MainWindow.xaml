@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="ManXage" WindowStartupLocation="CenterScreen" Height="357" Width="502" MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" WindowStyle="None" KeyDown="Window_KeyDown">
+        Title="ManXage" WindowStartupLocation="CenterScreen" Height="357" Width="502" MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" WindowStyle="None" KeyDown="Window_KeyDown" Background="#FFF5CC84">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
@@ -16,33 +16,32 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" Margin="20">
-                <TextBlock FontSize="25" Foreground="White"><Run>
+                <TextBlock FontSize="25" Foreground="#FFF5CC84"><Run>
                         Manage</Run>
                 </TextBlock>
-                <TextBlock FontSize="22" Foreground="White"><Run>
+                <TextBlock FontSize="22" Foreground="#FFF5CC84"><Run>
                         Data</Run>
                 </TextBlock>
-                <TextBlock Margin="0,30,0,0" TextWrapping="Wrap" Foreground="#FFF1E7E7">
+                <TextBlock Margin="0,30,0,0" TextWrapping="Wrap" Foreground="#FFFFE6B9">
                         Manage student database, with library entry and installment payments options
                 </TextBlock>
-                <TextBlock Margin="0,30,0,0"  TextWrapping="Wrap" Foreground="White" FontWeight="Bold">
+                <TextBlock Margin="0,30,0,0"  TextWrapping="Wrap" Foreground="#FFF5CC84" FontWeight="Bold">
                         Author: Surojit Paul 2019
                 </TextBlock>
             </StackPanel>
             <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,5">
-                <Button x:Name="btnHelp" Width="120" Content="Help" BorderBrush="{x:Null}" Background="#FF125EAA" Foreground="White" />
-                <Button x:Name="btnExit" Width="120" Content="Exit" BorderBrush="{x:Null}" Background="#FF125EAA" Foreground="White" Click="btnExit_Click" />
+                <Button x:Name="btnHelp" Width="120" Content="Help" BorderBrush="{x:Null}" Background="#FF125EAA" Foreground="#FFF5CC84" />
+                <Button x:Name="btnExit" Width="120" Content="Exit" BorderBrush="{x:Null}" Background="#FF125EAA" Foreground="#FFF5CC84" Click="btnExit_Click" />
             </StackPanel>
         </Grid>
         <StackPanel Grid.Column="1" Margin="20" VerticalAlignment="Center">
-            <Label Content="Login Credentials" FontSize="24" Background="{x:Null}" Foreground="#FF125EAA"/>
+            <Label Content="Login Credentials" FontSize="24" Background="{x:Null}" Foreground="#FF125EAA" Padding="0,5,5,5"/>
             <StackPanel Margin="0,10,0,0">
-                <Label  Content="Login Name" Foreground="#FF0955A2" FontWeight="Bold" FontSize="14"/>
-                <TextBox x:Name="iU" Text="surojit" Width="170" Height="30" HorizontalAlignment="Left" Margin="5,0,0,0" BorderBrush="#FF40A0FF" BorderThickness="2"  VerticalContentAlignment="Center" Padding="3,0,0,0" Foreground="#FF125EAA" FontWeight="Bold"/>
-                <Label Content="Password" FontWeight="Bold" Foreground="#FF0955A2" FontSize="14" Margin="0,10,0,0"/>
-                <PasswordBox x:Name="iP" Password="123" Width="170" Height="30" HorizontalAlignment="Left" Margin="5,0,0,0" BorderBrush="#FF40A0FF" BorderThickness="2" Padding="3" VerticalContentAlignment="Center" Foreground="#FF125EAA"/>
+                <Label  Content="Login Name" Foreground="#FF1C6DBD" FontWeight="Bold" FontSize="14" Margin="0" Padding="0,5,5,5"/>
+                <TextBox x:Name="iU" Text="surojit" Width="311.4" Height="30" HorizontalAlignment="Left" Margin="0" BorderBrush="#FF40A0FF" BorderThickness="0"  VerticalContentAlignment="Center" Padding="3,0,0,0" Foreground="White" FontWeight="Bold" Background="#FF1C6DBD"/>
+                <PasswordBox x:Name="iP" Password="123" Width="311.4" Height="30" HorizontalAlignment="Left" Margin="0" BorderBrush="White" BorderThickness="0,1,0,0" Padding="3" VerticalContentAlignment="Center" Foreground="White" Background="#FF1C6DBD"/>
                 <Label x:Name="txtError" Visibility="Collapsed" Content="( ! ) Your Password is Incorrect, Try Again!" Foreground="Red" Margin="0,10,0,0"/>
-                <StackPanel Margin="5,20,0,0" Orientation="Horizontal">
+                <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
                     <Button x:Name="btnLogin" HorizontalAlignment="Left" Width="120" Height="30" Content="Login" BorderBrush="{x:Null}" Background="#FF1C6DBD" Foreground="White" Click="btnLogin_Click" />
                     <Button x:Name="btnClean" Margin="5,0,0,0" HorizontalAlignment="Left" Width="120" Height="30" Content="Clear Fields" BorderBrush="{x:Null}" Background="#FF1C6DBD" Foreground="White" Click="btnClean_Click" />
                 </StackPanel>

@@ -88,6 +88,7 @@ namespace StudentDBProject.WindowsScreens
                 case "t3": ccPre.Content = new InstallmentEntryScreen(); break;
                 case "t4": ccPre.Content = new BusEntryScreen(); break;
                 case "t5": ccPre.Content = new SearchWindow(); break;
+                case "t7": ccPre.Content = new WelcomeHelpScreen(); break;
 
             }
         }

@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
              mc:Ignorable="d" 
-             d:DesignHeight="246.5" Margin="10,20,0,0" Width="500" d:DesignWidth="800">
-    <Grid Background="#FF125EAA">
+             d:DesignHeight="246.5" Margin="10,20,0,0" Width="500" d:DesignWidth="800" Background="#FF125EAA">
+    <Grid  Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto" />

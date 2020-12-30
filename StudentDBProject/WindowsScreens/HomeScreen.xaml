@@ -3,8 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:windowsscreens="clr-namespace:StudentDBProject.WindowsScreens"
         mc:Ignorable="d"
-        Title="HomeScreen" Height="700" Width="987.5" MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterScreen">
+        Title="HomeScreen" Height="702" Width="987.5" MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
@@ -32,9 +33,13 @@
                 <TextBlock x:Name="t4" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Bus Payment Record" FontWeight="Bold"/>
                 <TextBlock x:Name="t5" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Search On Database" FontWeight="Bold"/>
                 <TextBlock x:Name="t6" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Admin Options and Other Settings" FontWeight="Bold"/>
+                <TextBlock x:Name="t7" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Help" FontWeight="Bold"/>
             </StackPanel>
             <ScrollViewer Margin="10,0,5,0" Grid.Column="1" Background="#FFECECEC" >
                 <ContentPresenter x:Name="ccPre" Margin="10">
+                    <ContentPresenter.Content>
+                        <windowsscreens:WelcomeHelpScreen/>
+                    </ContentPresenter.Content>
                 </ContentPresenter>
             </ScrollViewer>
         </Grid>

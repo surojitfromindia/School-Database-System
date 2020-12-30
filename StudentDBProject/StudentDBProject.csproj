@@ -95,6 +95,9 @@
     <Compile Include="WindowsScreens\StudentSmallDetails.xaml.cs">
       <DependentUpon>StudentSmallDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowsScreens\WelcomeHelpScreen.xaml.cs">
+      <DependentUpon>WelcomeHelpScreen.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -152,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowsScreens\StudentSmallDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowsScreens\WelcomeHelpScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
