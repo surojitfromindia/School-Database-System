@@ -26,11 +26,11 @@
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
                     <TextBlock Text="Installment Paid" Margin="0,0,0,2"/>
-                    <TextBox x:Name="txtInst"  Height="30" Width="230" HorizontalAlignment="Left" Padding="5" />
+                    <TextBox x:Name="txtInst" Text="0"  Height="30" Width="230" HorizontalAlignment="Left" Padding="5" />
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
                     <TextBlock Text="Report" Margin="0,0,0,2"/>
-                    <TextBox x:Name="txtRp" Text="PAID" Height="30" Width="230" HorizontalAlignment="Left" Padding="5"/>
+                    <TextBox x:Name="txtRp" Text="Paid" Height="30" Width="230" HorizontalAlignment="Left" Padding="5"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="10">

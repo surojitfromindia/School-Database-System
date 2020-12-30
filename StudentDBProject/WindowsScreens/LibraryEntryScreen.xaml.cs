@@ -24,6 +24,7 @@ namespace StudentDBProject.WindowsScreens
         public LibraryEntryScreen()
         {
             InitializeComponent();
+            txtIdate.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -35,17 +36,24 @@ namespace StudentDBProject.WindowsScreens
         {
             Library lb = new Library(txtSID.Text, txtBookName.Text,
                DateTime.Parse(txtIdate.Text), DateTime.Parse(txtrdate.Text),
-               double.Parse(txtFine.Text), txtRp.Text);
-            MessageBox.Show(lb.Create().ToString());
+               double.Parse(txtFine.Text), lblRp.Content.ToString());
+            if (lb.Create())
+                lblRest.Text = "Record Saved!";
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             Library lb = new Library(txtSID.Text, txtBookName.Text,
                 DateTime.Parse(txtIdate.Text), DateTime.Parse(txtrdate.Text),
-                double.Parse(txtFine.Text), txtRp.Text);
-            Library.Update(lb);
-
+                double.Parse(txtFine.Text), lblRp.Content.ToString());
+            if (Library.Update(lb))
+            {
+                MessageBox.Show("Updated");
+                lblRest.Text = "Update Successful!";
+                Search();
+            }
+            else
+                MessageBox.Show("Update Faild!");
         }
 
         private void txtSID_KeyDown(object sender, KeyEventArgs e)
@@ -61,31 +69,14 @@ namespace StudentDBProject.WindowsScreens
             listPane.Children.Clear();
             Library foundBook = Library.FindLastEntry(txtSID.Text);
             if (foundBook != null)
-            {
-                txtBookName.Text = foundBook.bname;
-                txtIdate.Text = foundBook.iDate.ToString("dd/MM/yyyy");
-                txtrdate.Text = foundBook.rDate.ToString("dd/MM/yyyy");
-                txtFine.Text = foundBook.fine.ToString();
-                txtRp.Text = foundBook.rp;
-                txtLBC.Text = foundBook.sid + "L";
-                listPane.Children.Clear();
-                BookPerIdScreen bp = new BookPerIdScreen(txtSID.Text);
-                listPane.Children.Add(bp);
-            }
+                FillInfoFieldWith(foundBook);
             else
-            {
-                txtFine.Text = "0"; txtRp.Text = "HOLD"; txtIdate.Clear();
-                txtrdate.Clear(); txtLBC.Clear(); txtBookName.Clear();
-                txtSID.Clear();
-            }
-
+                ResetInputFields();
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
-            txtFine.Text = "0"; txtRp.Text = "HOLD"; txtIdate.Clear();
-            txtrdate.Clear(); txtLBC.Clear(); txtBookName.Clear();
-            txtSID.Clear();
+            ResetInputFields();
         }
 
         private void txtSID_TextChanged(object sender, TextChangedEventArgs e)
@@ -93,9 +84,24 @@ namespace StudentDBProject.WindowsScreens
             txtLBC.Text = txtSID.Text + "L";
         }
 
-        private void BookPerIdScreen_Loaded(object sender, RoutedEventArgs e)
+        void ResetInputFields()
         {
+            txtFine.Text = "0"; lblRp.Content = "HOLD"; txtIdate.Clear();
+            txtIdate.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
+            txtLBC.Clear(); txtBookName.Clear();
+        }
 
+        void FillInfoFieldWith(Library foundBook)
+        {
+            txtBookName.Text = foundBook.bname;
+            txtIdate.Text = foundBook.iDate.ToString("dd/MM/yyyy");
+            txtrdate.Text = foundBook.rDate.ToString("dd/MM/yyyy");
+            txtFine.Text = foundBook.fine.ToString();
+            lblRp.Content = foundBook.rp;
+            txtLBC.Text = foundBook.sid + "L";
+            listPane.Children.Clear();
+            BookPerIdScreen bp = new BookPerIdScreen(txtSID.Text);
+            listPane.Children.Add(bp);
         }
     }
 }

@@ -15,7 +15,7 @@
             <ColumnDefinition Width="*"/>
 
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="0" Padding="5" Name="txtBookName" TextWrapping="NoWrap"  Foreground="White" Text="Don Quixote"/>
+        <TextBlock Grid.Column="0" Padding="5" Name="txtBookName" TextWrapping="Wrap"  Foreground="White" Text="Don Quixote"/>
         <TextBlock Grid.Column="1" Padding="5" Name="txtISDate" TextWrapping="NoWrap"  Foreground="White" Text="12/12/2019"/>
         <TextBlock Grid.Column="2" Padding="5" Name="txtRetDate" TextWrapping="NoWrap"  Foreground="White" Text="19/12/2019"/>
         <TextBlock Grid.Column="3" Padding="5" Name="txtFine" TextWrapping="NoWrap"  Foreground="White" Text="Rs. 10"/>

@@ -75,5 +75,15 @@ namespace StudentDBProject
                 LoginAction();
 
         }
+
+        private void btnHelp_Click(object sender, RoutedEventArgs e)
+        {
+            Window basic = new Window();
+            basic.Title = "Help";
+            basic.Width = 750;
+            basic.Height = 570;
+            basic.Content = new WelcomeHelpScreen();
+            basic.ShowDialog();
+        }
     }
 }

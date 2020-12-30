@@ -31,7 +31,7 @@ namespace StudentDBProject.WindowsScreens
         public HomeScreen(string usr)
         {
             InitializeComponent();
-            txtUserName.Text = "Hola "+ConnectionClass.Utype+", "+usr+" !";
+            txtUserName.Text = "Hola "+ConnectionClass.Utype+", "+usr+"!";
             Closed += HomeScreen_Closed;
             ArmTabs();
         }
@@ -43,7 +43,7 @@ namespace StudentDBProject.WindowsScreens
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-           // DragMove();
+           DragMove();
         }
 
         void ArmTabs() {
@@ -88,7 +88,9 @@ namespace StudentDBProject.WindowsScreens
                 case "t3": ccPre.Content = new InstallmentEntryScreen(); break;
                 case "t4": ccPre.Content = new BusEntryScreen(); break;
                 case "t5": ccPre.Content = new SearchWindow(); break;
+                case "t6": ccPre.Content = new EmptyScreen(); break;
                 case "t7": ccPre.Content = new WelcomeHelpScreen(); break;
+                case "t8": this.Close(); break;
 
             }
         }

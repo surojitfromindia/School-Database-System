@@ -24,6 +24,7 @@ namespace StudentDBProject.WindowsScreens
         public InstallmentEntryScreen()
         {
             InitializeComponent();
+            txtPdate.Text = DateTime.Today.ToString("dd/MM/yyyy");
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -31,7 +32,7 @@ namespace StudentDBProject.WindowsScreens
             Installment i = new Installment(txtSID.Text, int.Parse(txtINumber.Text), int.Parse(txtAmount.Text),
                 double.Parse(txtGST.Text), DateTime.Parse(txtPdate.Text), double.Parse(txtFine.Text), txtReport.Text
                 );
-            MessageBox.Show( i.Create() ? "Save Successful" : "Not Succesful");
+            MessageBox.Show(i.Create() ? "Save Successful" : "Not Succesful");
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
@@ -42,7 +43,7 @@ namespace StudentDBProject.WindowsScreens
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             Installment lastInstallment = Installment.GetLastInstallment(txtSID.Text);
-            if(lastInstallment!=null)
+            if (lastInstallment != null)
             {
                 txtINumber.Text = lastInstallment.isnumber.ToString();
                 txtAmount.Text = lastInstallment.inst.ToString();
@@ -55,11 +56,10 @@ namespace StudentDBProject.WindowsScreens
 
         void NewForm()
         {
-            txtPdate.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
-            txtGST.Text = "0";
-            txtFine.Text = "0";
-            txtSID.Clear(); txtAmount.Clear(); 
             txtINumber.Clear();
+            txtAmount.Text = "0";
+            txtPdate.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
+            txtSID.Clear();
         }
 
         private void txtSID_TextChanged(object sender, TextChangedEventArgs e)
@@ -69,7 +69,8 @@ namespace StudentDBProject.WindowsScreens
 
         private void txtAmount_TextChanged(object sender, TextChangedEventArgs e)
         {
-            txtGST.Text = (int.Parse(txtAmount.Text) * 0.18).ToString();
+            if (txtGST != null) //let it load
+                txtGST.Text = (int.Parse(txtAmount.Text) * 0.18).ToString();
         }
     }
 }

@@ -43,7 +43,11 @@ namespace StudentDBProject.WindowsScreens
         {
             Bus bb = new Bus(txtSid.Text, txtBId.Text, int.Parse(txtInst.Text),
                 DateTime.Parse(txtPayDate.Text), double.Parse(txtFine.Text), txtRp.Text);
-           MessageBox.Show( bb.Create().ToString());
+            if (bb.Create())
+                MessageBox.Show("Transaction Complete");
+            else
+                MessageBox.Show("Faild");
+
         }
 
         private void txtSid_TextChanged(object sender, TextChangedEventArgs e)
@@ -56,8 +60,8 @@ namespace StudentDBProject.WindowsScreens
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             txtPayDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
-            txtSid.Clear(); txtRp.Clear(); txtBId.Clear();
-            txtInst.Text = "0"; txtRp.Text = "PAID";
+            txtSid.Clear(); txtRp.Clear(); txtBId.Clear(); chkIsFineApplicable.IsChecked = false;
+            txtRp.Text = "Paid";txtInst.Text="0";
         }
 
        

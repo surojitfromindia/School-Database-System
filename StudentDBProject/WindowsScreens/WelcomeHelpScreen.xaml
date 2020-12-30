@@ -43,6 +43,12 @@
                     <TextBlock Padding="1" Text="Beta 1.2" Foreground="#FF125EAA" Margin="20,0,0,0" />
                 </StackPanel>
             </ListBoxItem>
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Padding="1" Text="All Date input fields now have current date by deafault" Foreground="#FF125EAA" Width="600" />
+                    <TextBlock Padding="1" Text="Beta 1.2" Foreground="#FF125EAA" Margin="20,0,0,0" />
+                </StackPanel>
+            </ListBoxItem>
 
         </ListBox>
 

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
              mc:Ignorable="d" 
-             d:DesignHeight="450"  Width="500" MaxHeight="300" Margin="10,20,0,0" d:DesignWidth="600">
+             d:DesignHeight="450"  Width="600" MaxHeight="300" Margin="10,20,0,0" d:DesignWidth="600">
     <Grid Background="#FF125EAA">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -20,25 +20,26 @@
             </StackPanel>
 
         </StackPanel>
-        <Grid Grid.Row="1" Margin="15,10,0,0" Width="500">
+        <Grid Grid.Row="1" Margin="15,0,0,5" HorizontalAlignment="Left" Width="500">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="1.3*"/>
+                <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Padding="5" Name="txtINumber" TextWrapping="NoWrap"  Foreground="White" Text="Number"/>
-            <TextBlock Grid.Column="1" Padding="5" Name="txtAmount" TextWrapping="NoWrap"  Foreground="White" Text="Amount"/>
-            <TextBlock Grid.Column="2" Padding="5" Name="txtGST" TextWrapping="NoWrap"  Foreground="White" Text="GST"/>
-            <TextBlock Grid.Column="3" Padding="5" Name="txtPDate" TextWrapping="NoWrap"  Foreground="White" Text="Pay Date"/>
-            <TextBlock Grid.Column="4" Padding="5" Name="txtFine" TextWrapping="NoWrap"  Foreground="White" Text="Fine"/>
-            <TextBlock Grid.Column="5" Padding="5" Name="txtRp" TextWrapping="NoWrap"  Foreground="White" Text="Status"/>
+            <TextBlock Grid.Column="0" Padding="5"  TextWrapping="NoWrap"  Foreground="White" Text="Number"/>
+            <TextBlock Grid.Column="1" Padding="5" TextWrapping="NoWrap"  Foreground="White" Text="Amount"/>
+            <TextBlock Grid.Column="2" Padding="5"  TextWrapping="NoWrap"  Foreground="White" Text="GST"/>
+            <TextBlock Grid.Column="3" Padding="5"  TextWrapping="NoWrap"  Foreground="White" Text="Pay Date"/>
+            <TextBlock Grid.Column="4" Padding="5"  TextWrapping="NoWrap"  Foreground="White" Text="Fine"/>
+            <TextBlock Grid.Column="5" Padding="5"  TextWrapping="NoWrap"  Foreground="White" Text="Status"/>
 
         </Grid>
         <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" MaxHeight="200">
-            <StackPanel x:Name="lstPanel" Margin="15,10,0,10">
+            <StackPanel x:Name="lstPanel" Margin="15,0,0,10" HorizontalAlignment="Left">
+
             </StackPanel>
         </ScrollViewer>
 

@@ -37,14 +37,13 @@ namespace StudentDBProject.Models
 
         public bool Create()
         {
-            string commandString = "insert into Bus values(@sid, @bid, @ins, @pdate, @fine, @rp)";
+            string commandString = "insert into Bus values(@sid, @bid, @ins, @pdate, @fine, 'Paid')";
             OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
             cmd.Parameters.AddWithValue("@sid", sid);
             cmd.Parameters.AddWithValue("@bid", sid + "B");
             cmd.Parameters.AddWithValue("@ins", inst);
             cmd.Parameters.AddWithValue("@pdate", pDate);
             cmd.Parameters.AddWithValue("@fine", fine);
-            cmd.Parameters.AddWithValue("@rp", rp);
             int i = cmd.ExecuteNonQuery();
             return i == 1 ? true : false;
         }

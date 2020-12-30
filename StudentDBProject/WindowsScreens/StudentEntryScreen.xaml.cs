@@ -31,7 +31,6 @@ namespace StudentDBProject.WindowsScreens
             txtRoll.TextChanged += onTextChange;
             txtClass.TextChanged += onTextChange;
             txtSec.TextChanged += onTextChange;
-            txtRoll.Text = Student.nextRoll(txtClass.Text).ToString();
         }
 
         public StudentEntryScreen(string searchID)
@@ -89,7 +88,7 @@ namespace StudentDBProject.WindowsScreens
             txtVoter.Clear(); txtRoll.Clear(); txtSec.Clear();
             txtAdd.Clear(); txtLB.Clear(); txtBus.Clear();
             txtSec.Clear(); txtClass.Clear();txtCon.Clear();
-            txtRoll.Text = Student.nextRoll(txtClass.Text).ToString();
+            txtRoll.Text = "";
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)

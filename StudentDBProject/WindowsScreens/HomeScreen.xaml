@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:windowsscreens="clr-namespace:StudentDBProject.WindowsScreens"
         mc:Ignorable="d"
-        Title="HomeScreen" Height="702" Width="987.5" MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterScreen">
+        Title="HomeScreen" Height="667" Width="1014.5" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStyle="None"
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
@@ -26,7 +28,7 @@
                 <ColumnDefinition Width="145"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Background="#FFECECEC" x:Name="sPan" >
+            <StackPanel Background="White" x:Name="sPan" >
                 <TextBlock x:Name="t1" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Student Information Record" FontWeight="Bold"/>
                 <TextBlock x:Name="t2" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Library Data Record" FontWeight="Bold"/>
                 <TextBlock x:Name="t3" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Installment Update" FontWeight="Bold"/>
@@ -34,8 +36,10 @@
                 <TextBlock x:Name="t5" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Search On Database" FontWeight="Bold"/>
                 <TextBlock x:Name="t6" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Admin Options and Other Settings" FontWeight="Bold"/>
                 <TextBlock x:Name="t7" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Help" FontWeight="Bold"/>
+                <TextBlock x:Name="t8" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Exit" FontWeight="Bold"/>
+
             </StackPanel>
-            <ScrollViewer Margin="10,0,5,0" Grid.Column="1" Background="#FFECECEC" >
+            <ScrollViewer Margin="10,0,5,0" Grid.Column="1" Background="White" VerticalScrollBarVisibility="Auto">
                 <ContentPresenter x:Name="ccPre" Margin="10">
                     <ContentPresenter.Content>
                         <windowsscreens:WelcomeHelpScreen/>

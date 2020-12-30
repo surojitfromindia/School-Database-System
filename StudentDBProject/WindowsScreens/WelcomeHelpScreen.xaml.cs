@@ -32,7 +32,7 @@ namespace StudentDBProject.WindowsScreens
 
         void DescriptionAbout()
         {
-            helpDescription.Add("Student Entry", "Insert student info into database");
+            helpDescription.Add("Student Entry", "Insert student info\ninto database");
             helpDescription.Add("Bus Entry", "Insert Bus info into database");
             foreach(string optionText in helpDescription.Keys)
             {

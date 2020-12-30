@@ -30,7 +30,7 @@
                 </TextBlock>
             </StackPanel>
             <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,5">
-                <Button x:Name="btnHelp" Width="120" Content="Help" BorderBrush="{x:Null}" Background="#FF125EAA" Foreground="#FFF5CC84" />
+                <Button x:Name="btnHelp" Width="120" Content="Help" BorderBrush="{x:Null}" Background="#FF125EAA" Foreground="#FFF5CC84" Click="btnHelp_Click" />
                 <Button x:Name="btnExit" Width="120" Content="Exit" BorderBrush="{x:Null}" Background="#FF125EAA" Foreground="#FFF5CC84" Click="btnExit_Click" />
             </StackPanel>
         </Grid>

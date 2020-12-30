@@ -26,7 +26,7 @@ namespace StudentDBProject.Models
 
         public bool Create()
         {
-            string commandString = "insert into installment values(@sid, @inum ,@ins, @gst, @pdate, @fin, @rp)";
+            string commandString = "insert into installment values(@sid, @inum ,@ins, @gst, @pdate, @fin, 'Paid')";
             OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
             cmd.Parameters.AddWithValue("@sid", sid);
             cmd.Parameters.AddWithValue("@inum", isnumber);
@@ -34,7 +34,6 @@ namespace StudentDBProject.Models
             cmd.Parameters.AddWithValue("@gst", gst);
             cmd.Parameters.AddWithValue("@padte", payDate);
             cmd.Parameters.AddWithValue("@fin", tFine);
-            cmd.Parameters.AddWithValue("@rp", rp);
             int i = cmd.ExecuteNonQuery();
             return i == 1 ? true : false;
         }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
              mc:Ignorable="d" 
-             d:DesignHeight="450"  Width="500" MaxHeight="300" Margin="10,20,0,0" d:DesignWidth="600">
+             d:DesignHeight="450"  Width="550" MaxHeight="500" Margin="10,20,0,0" d:DesignWidth="550">
     <Grid Background="#FF125EAA">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -20,7 +20,7 @@
             </StackPanel>
 
         </StackPanel>
-        <Grid Grid.Row="1" Margin="5" Width="500">
+        <Grid Grid.Row="1" Margin="15,0,0,5" Width="500" HorizontalAlignment="Left">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
@@ -29,19 +29,17 @@
                 <ColumnDefinition Width="*"/>
 
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Padding="5" Name="txtBookName" TextWrapping="NoWrap"  Foreground="White" Text="Book Name"/>
-            <TextBlock Grid.Column="1" Padding="5" Name="txtISDate" TextWrapping="NoWrap"  Foreground="White" Text="Issue Date"/>
-            <TextBlock Grid.Column="2" Padding="5" Name="txtRetDate" TextWrapping="NoWrap"  Foreground="White" Text="Return Date"/>
-            <TextBlock Grid.Column="3" Padding="5" Name="txtFine" TextWrapping="NoWrap"  Foreground="White" Text="Fine"/>
-            <TextBlock Grid.Column="4" Padding="5" Name="txtRep" TextWrapping="NoWrap"  Foreground="White" Text="Status"/>
-
+            <TextBlock Grid.Column="0" Padding="5"  TextWrapping="NoWrap"  Foreground="White" Text="Book Name"/>
+            <TextBlock Grid.Column="1" Padding="5"  TextWrapping="NoWrap"  Foreground="White" Text="Issue Date"/>
+            <TextBlock Grid.Column="2" Padding="5"  TextWrapping="NoWrap"  Foreground="White" Text="Return Date"/>
+            <TextBlock Grid.Column="3" Padding="5"  TextWrapping="NoWrap"  Foreground="White" Text="Fine"/>
+            <TextBlock Grid.Column="4" Padding="5"  TextWrapping="NoWrap"  Foreground="White" Text="Status"/>
         </Grid>
 
-        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" MaxHeight="200">
-            <StackPanel x:Name="lstPanel" Margin="5">
-                
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" MaxHeight="200" Margin="0,2,0,28">
+            <StackPanel x:Name="lstPanel" Margin="15,10,0,0" HorizontalAlignment="Left">
+                <local:BookRow/>
             </StackPanel>
         </ScrollViewer>
-  
     </Grid>
 </UserControl>

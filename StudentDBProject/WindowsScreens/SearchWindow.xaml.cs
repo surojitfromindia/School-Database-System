@@ -17,7 +17,7 @@ namespace StudentDBProject.WindowsScreens
             InitializeComponent();
             if (ConnectionClass.Utype != "Admin")
             {
-                btnDeleteRecord.Visibility = Visibility.Hidden;
+                btnDeleteRecord.Visibility = Visibility.Collapsed;
             }//hide delete record button if user is not admin.
             LoadList(); // Load itemBox with student info.
         }
@@ -50,6 +50,7 @@ namespace StudentDBProject.WindowsScreens
 
         void SearchAndShow(string s)
         {
+            txtIDNumber.Text = s;
             // Show Four Search Output Screen
             StudentEntryScreen StudentDetails = new StudentEntryScreen(s);
             BookPerIdScreen bp = new BookPerIdScreen(s);

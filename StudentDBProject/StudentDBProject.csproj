@@ -68,6 +68,9 @@
     <Compile Include="WindowsScreens\BusEntryScreen.xaml.cs">
       <DependentUpon>BusEntryScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowsScreens\EmptyScreen.xaml.cs">
+      <DependentUpon>EmptyScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowsScreens\HomeScreen.xaml.cs">
       <DependentUpon>HomeScreen.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowsScreens\BusEntryScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowsScreens\EmptyScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

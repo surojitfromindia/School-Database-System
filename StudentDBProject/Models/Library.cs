@@ -10,7 +10,6 @@ namespace StudentDBProject.Models
     class Library
     {
         public string sid;
-        public string lid;
         public string bname;
         public string rp;
         public DateTime iDate;
@@ -37,7 +36,7 @@ namespace StudentDBProject.Models
 
         public bool Create()
         {
-            string commandString = "insert into Library values(@sid, @lid, @bname, @idate, @rdate, 0,'HOLD')";
+            string commandString = "insert into Library values(@sid, @lid, @bname, @idate, @rdate, 0,'Hold')";
             OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
             cmd.Parameters.AddWithValue("@sid", sid);
             cmd.Parameters.AddWithValue("@lid", sid + "L");
@@ -56,7 +55,7 @@ namespace StudentDBProject.Models
             int i0 = cmd0.ExecuteNonQuery();
 
             //Then Add again
-            string commandString = "insert into Library values(@sid, @lid, @bname, @idate, @rdate, @fine,'RETURNED')";
+            string commandString = "insert into Library values(@sid, @lid, @bname, @idate, @rdate, @fine,'Returned')";
             OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
             cmd.Parameters.AddWithValue("@sid", newLib.sid);
             cmd.Parameters.AddWithValue("@lid", newLib.sid + "L");
