@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="StudentDBProject.WindowsScreens.InstallmentRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="500" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.3*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Padding="5" Name="txtINumber" TextWrapping="NoWrap"  Foreground="White" Text="1"/>
+        <TextBlock Grid.Column="1" Padding="5" Name="txtAmount" TextWrapping="NoWrap"  Foreground="White" Text="2500"/>
+        <TextBlock Grid.Column="2" Padding="5" Name="txtGST" TextWrapping="NoWrap"  Foreground="White" Text="25"/>
+        <TextBlock Grid.Column="3" Padding="5" Name="txtPDate" TextWrapping="NoWrap"  Foreground="White" Text="12/8/2019"/>
+        <TextBlock Grid.Column="4" Padding="5" Name="txtFine" TextWrapping="NoWrap"  Foreground="White" Text="10"/>
+        <TextBlock Grid.Column="5" Padding="5" Name="txtRp" TextWrapping="NoWrap"  Foreground="White" Text="PAID"/>
+
+    </Grid>
+</UserControl>
