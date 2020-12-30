@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="530" d:DesignWidth="800" Foreground="#FFD82698" FontSize="12">
     <StackPanel>
-        <Label Padding="0,5,5,0" Content="School  Box 1.00" FontSize="25" Foreground="#FF125EAA" Margin="10,10,10,0" FontFamily="Montserrat SemiBold"/>
+        <Label Padding="0,5,5,0" Content="School  Box 1.20" FontSize="25" Foreground="#FF125EAA" Margin="10,10,10,0" FontFamily="Montserrat SemiBold"/>
         <Label Padding="0,5,5,5" Content="copyright 2029 - 2020" FontSize="15" Foreground="#FF125EAA" Margin="10,0,10,0" FontFamily="Montserrat Medium"/>
         <TextBlock TextWrapping="Wrap" Text="Welcome to School Management 1.0. This soulution is equiped with powerfull database storing system. with help of GUI administer can entry, update, delete data. Seach with mutliple fillter, is a feature very helpfull. database secured with uncompronmisable user verification system. Admin is given the full pontential as well as feature and usage allowance." Width="613" HorizontalAlignment="Left" Margin="10,10,0,10" Foreground="#FFD82698" FontSize="13" FontFamily="Montserrat"/>
         <TextBlock TextWrapping="Wrap" Text="Welcome to School Management 1.0. This soulution is equiped with powerfull database storing system. with help of GUI administer can entry, update, delete data. Seach with mutliple fillter, is a feature very helpfull. database secured with uncompronmisable user verification system. Admin is given the full pontential as well as feature and usage allowance." Width="531" HorizontalAlignment="Left" Margin="10,10,0,10" Foreground="#FFD82698" FontSize="8" FontFamily="Montserrat Medium" FontWeight="Bold"/>
@@ -31,8 +31,19 @@
                     <TextBlock Padding="1" Text="Beta 1.1" Foreground="#FF125EAA" Margin="20,0,0,0" />
                 </StackPanel>
             </ListBoxItem>
-           
-           
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Padding="1" Text="Small info of Bus, Book and Monthly installment" Foreground="#FF125EAA" Width="600" />
+                    <TextBlock Padding="1" Text="Beta 1.1" Foreground="#FF125EAA" Margin="20,0,0,0" />
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Padding="1" Text="Delete now work on all table" Foreground="#FF125EAA" Width="600" />
+                    <TextBlock Padding="1" Text="Beta 1.2" Foreground="#FF125EAA" Margin="20,0,0,0" />
+                </StackPanel>
+            </ListBoxItem>
+
         </ListBox>
 
         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
