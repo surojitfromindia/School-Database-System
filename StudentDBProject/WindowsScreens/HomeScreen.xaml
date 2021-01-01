@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="HomeScreen" Height="667" Width="1014.5" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStyle="None"
-        AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
@@ -15,9 +15,7 @@
         </Grid.RowDefinitions>
         <StackPanel  Background="#FF125EAA">
             <StackPanel Margin="15">
-                <TextBlock FontSize="18" Foreground="White">
-                Welcome
-                </TextBlock>
+                <TextBlock FontSize="18" Foreground="White" Text="Welcome"/>
                 <TextBlock x:Name="txtUserName" FontSize="26" Foreground="White">
                 User Name
                 </TextBlock>
@@ -28,7 +26,7 @@
                 <ColumnDefinition Width="145"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Background="White" x:Name="sPan" >
+            <StackPanel  x:Name="sPan" >
                 <TextBlock x:Name="t1" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Student Information Record" FontWeight="Bold"/>
                 <TextBlock x:Name="t2" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Library Data Record" FontWeight="Bold"/>
                 <TextBlock x:Name="t3" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Installment Update" FontWeight="Bold"/>
@@ -39,7 +37,7 @@
                 <TextBlock x:Name="t8" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Exit" FontWeight="Bold"/>
 
             </StackPanel>
-            <ScrollViewer Margin="10,0,5,0" Grid.Column="1" Background="White" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer Margin="10,0,5,0" Grid.Column="1" VerticalScrollBarVisibility="Auto">
                 <ContentPresenter x:Name="ccPre" Margin="10">
                     <ContentPresenter.Content>
                         <windowsscreens:WelcomeHelpScreen/>

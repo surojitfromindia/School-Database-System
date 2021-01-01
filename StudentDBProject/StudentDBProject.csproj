@@ -34,9 +34,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ExeIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,6 +63,15 @@
     <Compile Include="Models\Installment.cs" />
     <Compile Include="Models\Library.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\ThemeColor.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsScreens\AdminSettings.xaml.cs">
+      <DependentUpon>AdminSettings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowsScreens\BookPerIdScreen.xaml.cs">
       <DependentUpon>BookPerIdScreen.xaml</DependentUpon>
     </Compile>
@@ -68,6 +81,7 @@
     <Compile Include="WindowsScreens\BusEntryScreen.xaml.cs">
       <DependentUpon>BusEntryScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowsScreens\DataEntryErrorInfoClass.cs" />
     <Compile Include="WindowsScreens\EmptyScreen.xaml.cs">
       <DependentUpon>EmptyScreen.xaml</DependentUpon>
     </Compile>
@@ -88,6 +102,9 @@
     </Compile>
     <Compile Include="WindowsScreens\MiniBusInfo.xaml.cs">
       <DependentUpon>MiniBusInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsScreens\ProgressIndicator.xaml.cs">
+      <DependentUpon>ProgressIndicator.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowsScreens\SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
@@ -113,6 +130,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WindowsScreens\AdminSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowsScreens\BookPerIdScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -153,6 +174,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WindowsScreens\ProgressIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowsScreens\SearchWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,11 +200,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -197,6 +217,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\ExeIcon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

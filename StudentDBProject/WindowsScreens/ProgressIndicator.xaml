@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="StudentDBProject.WindowsScreens.ProgressIndicator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="245">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="73*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Progress" FontSize="19" Foreground="#FF125EAA"/>
+        <ListBox Name="p1" Grid.Row="1" >
+
+        </ListBox>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <ProgressBar Name="ppProgress" Grid.Row="2" Width="200" HorizontalAlignment="Left" Height="10" Maximum="200" LargeChange="50" Value="3" Foreground="#FF125EAA"/>
+            <TextBlock Name="Ptxt" Text="0/4" VerticalAlignment="Center" Margin="10,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
