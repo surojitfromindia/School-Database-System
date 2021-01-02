@@ -22,10 +22,11 @@ namespace StudentDBProject.WindowsScreens
     {
         public event EventHandler onThisClose;
         private object curTab;
+        private string onHoverAndSelectedColor = "#FF865FC5";
+
         public HomeScreen()
         {
             InitializeComponent();
-           
         }
 
         public HomeScreen(string usr)
@@ -68,16 +69,15 @@ namespace StudentDBProject.WindowsScreens
             {
                 TextBlock tt = (TextBlock)t;
                 tt.Background = new SolidColorBrush(Colors.Transparent);
-                tt.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF125EAA"));
+                tt.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(onHoverAndSelectedColor));
             }
-            ((TextBlock)sender).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF125EAA"));
+            ((TextBlock)sender).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(onHoverAndSelectedColor));
             ((TextBlock)sender).Foreground = new SolidColorBrush(Colors.White);
             remainSelected();
         }
 
         private void T_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
             cleanSelection();
             string name = ((TextBlock)sender).Name;
             curTab = sender;
@@ -101,13 +101,13 @@ namespace StudentDBProject.WindowsScreens
 
                 TextBlock tt = (TextBlock)t;
                 tt.Background = new SolidColorBrush(Colors.Transparent);
-                tt.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF125EAA"));
+                tt.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(onHoverAndSelectedColor));
             }
         }
         private void remainSelected() {
             if (curTab != null)
             {
-                ((TextBlock)curTab).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF125EAA"));
+                ((TextBlock)curTab).Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString(onHoverAndSelectedColor));
                 ((TextBlock)curTab).Foreground = new SolidColorBrush(Colors.White);
             }
         }

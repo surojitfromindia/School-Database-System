@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="HomeScreen" Height="667" Width="1014.5" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStyle="None"
-        AllowsTransparency="True" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" Background="White">
+        AllowsTransparency="True" WindowStartupLocation="CenterScreen" Foreground="#FF865FC9" ResizeMode="CanResizeWithGrip" Background="White">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel  Background="#FF125EAA">
+        <StackPanel  Background="#FF865FC9">
             <StackPanel Margin="15">
                 <TextBlock FontSize="18" Foreground="White" Text="Welcome"/>
                 <TextBlock x:Name="txtUserName" FontSize="26" Foreground="White">
@@ -27,14 +27,14 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel  x:Name="sPan" >
-                <TextBlock x:Name="t1" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Student Information Record" FontWeight="Bold"/>
-                <TextBlock x:Name="t2" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Library Data Record" FontWeight="Bold"/>
-                <TextBlock x:Name="t3" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Installment Update" FontWeight="Bold"/>
-                <TextBlock x:Name="t4" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Bus Payment Record" FontWeight="Bold"/>
-                <TextBlock x:Name="t5" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Search On Database" FontWeight="Bold"/>
-                <TextBlock x:Name="t6" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Admin Options and Other Settings" FontWeight="Bold"/>
-                <TextBlock x:Name="t7" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Help" FontWeight="Bold"/>
-                <TextBlock x:Name="t8" Padding="10" TextWrapping="Wrap"  Foreground="#FF125EAA" Text="Exit" FontWeight="Bold"/>
+                <TextBlock x:Name="t1" Padding="10" TextWrapping="Wrap"  Text="Student Information Record" FontWeight="Bold"/>
+                <TextBlock x:Name="t2" Padding="10" TextWrapping="Wrap"  Text="Library Data Record" FontWeight="Bold"/>
+                <TextBlock x:Name="t3" Padding="10" TextWrapping="Wrap"  Text="Installment Update" FontWeight="Bold"/>
+                <TextBlock x:Name="t4" Padding="10" TextWrapping="Wrap"  Text="Bus Payment Record" FontWeight="Bold"/>
+                <TextBlock x:Name="t5" Padding="10" TextWrapping="Wrap"  Text="Search On Database" FontWeight="Bold"/>
+                <TextBlock x:Name="t6" Padding="10" TextWrapping="Wrap"  Text="Admin Options and Other Settings" FontWeight="Bold"/>
+                <TextBlock x:Name="t7" Padding="10" TextWrapping="Wrap"  Text="Help" FontWeight="Bold"/>
+                <TextBlock x:Name="t8" Padding="10" TextWrapping="Wrap"  Text="Exit" FontWeight="Bold"/>
 
             </StackPanel>
             <ScrollViewer Margin="10,0,5,0" Grid.Column="1" VerticalScrollBarVisibility="Auto">

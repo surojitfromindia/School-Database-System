@@ -15,7 +15,6 @@ namespace StudentDBProject.Models
         public string rp;
         public DateTime pDate;
         public double fine;
-
         public int install;
 
         //For Search Purpose
@@ -50,7 +49,6 @@ namespace StudentDBProject.Models
 
         public static Bus FindBusI(string studenID)
         {
-
             Bus bs = null;
             string ss = "select * from Bus where Sid = @sid ";
             OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);

@@ -61,7 +61,6 @@ namespace StudentDBProject.WindowsScreens
                 TextWrapping = TextWrapping.Wrap,
                 Width = 220,
                 Margin = new Thickness(5),
-                Foreground = new SolidColorBrush(Colors.RoyalBlue)
             };
             return lb;
         }
