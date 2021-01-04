@@ -25,6 +25,7 @@ namespace StudentDBProject.WindowsScreens
         public MiniBusInfo()
         {
             InitializeComponent();
+            b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
         }
 
         public MiniBusInfo(string id)
@@ -32,7 +33,7 @@ namespace StudentDBProject.WindowsScreens
             InitializeComponent();
             this.id = id;
             LoadInfo();
-
+            b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
         }
 
         private void LoadInfo()

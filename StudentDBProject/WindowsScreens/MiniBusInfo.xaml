@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
              mc:Ignorable="d" 
              d:DesignHeight="246.5" Margin="10" Width="500" d:DesignWidth="800" >
-    <Border Background="#FF125EAA" CornerRadius="12" >
+    <Border Background="#FFCB8914" Name="b1" CornerRadius="12" >
         <Grid Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -22,25 +22,25 @@
                     <StackPanel Grid.Column="0">
                         <StackPanel Margin="0,10,0,0">
                             <Label Foreground="White" Content="Bus ID" Padding="5,5,5,0"/>
-                            <Label Name="lblBusID" Foreground="#FFF5CC84" Content="" FontSize="15"/>
+                            <Label Name="lblBusID" Foreground="White" Content="7885" FontSize="15"/>
                         </StackPanel>
                         <StackPanel Margin="0,10,0,0">
                             <Label Foreground="White" Content="Last Installment" Padding="5,5,5,0"/>
-                            <Label Name="lblAmount" Foreground="#FFF5CC84" Content="" FontSize="15"/>
+                            <Label Name="lblAmount" Foreground="White" Content="7885" FontSize="15"/>
                         </StackPanel>
                         <StackPanel Margin="0,10,0,0">
                             <Label Foreground="White" Content="Report" Padding="5,5,5,0"/>
-                            <Label Name="lblReport" Foreground="#FFF5CC84" Content="" FontSize="15"/>
+                            <Label Name="lblReport" Foreground="White" Content="7885" FontSize="15"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Grid.Column="1">
                         <StackPanel Margin="0,10,0,0">
                             <Label Foreground="White" Content="Payment Date" Padding="5,5,5,0"/>
-                            <Label Name="lblPDate" Foreground="#FFF5CC84" Content="" FontSize="15"/>
+                            <Label Name="lblPDate" Foreground="White" Content="7885" FontSize="15"/>
                         </StackPanel>
                         <StackPanel Margin="0,10,0,0">
                             <Label Foreground="White" Content="Fine Amount" Padding="5,5,5,0"/>
-                            <Label Name="lblFine" Foreground="#FFF5CC84" Content="" FontSize="15"/>
+                            <Label Name="lblFine" Foreground="White" Content="7885" FontSize="15"/>
                         </StackPanel>
 
                     </StackPanel>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentDBProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,7 @@ namespace StudentDBProject.WindowsScreens
         public WelcomeHelpScreen()
         {
             InitializeComponent();
+            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             DescriptionAbout();
         }
 
@@ -39,7 +41,7 @@ namespace StudentDBProject.WindowsScreens
                 Label lb = new Label();
                 lb.Content = optionText;
                 lb.Padding = new Thickness(1);
-                lb.Foreground = new SolidColorBrush(Color.FromRgb(18, 94, 170));
+                lb.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
                 listHelpOpt.Items.Add(lb);
             }
         }

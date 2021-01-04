@@ -24,7 +24,9 @@ namespace StudentDBProject.WindowsScreens
         public BusEntryScreen()
         {
             InitializeComponent();
+            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             txtPayDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
+
         }
 
         

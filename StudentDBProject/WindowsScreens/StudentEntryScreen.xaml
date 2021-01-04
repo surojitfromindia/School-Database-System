@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
              mc:Ignorable="d" 
-             d:DesignHeight="500"  d:DesignWidth="795"  Foreground="#FF865FC5">
+             d:DesignHeight="500"  d:DesignWidth="795" >
     <StackPanel>
         <Label Padding="0,5,5,5" Content="Student Information Fields" FontSize="25" Foreground="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:StudentEntryScreen}}}" Margin="10"/>
         <Grid>
@@ -16,53 +16,53 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Margin="10">
                 <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Student ID" Margin="0,0,0,2"/>
+                    <TextBlock Text="Student ID" Margin="0,0,0,2" FontFamily="Verdana" FontSize="11" Padding="0,0,0,2"/>
                     <TextBox x:Name="txtId" Height="30" Width="170"  HorizontalAlignment="Left" Padding="5" IsTabStop="False" BorderBrush="{Binding Foreground, ElementName=userControl}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Name" Margin="0,0,0,2"/>
+                    <TextBlock Text="Name" Margin="0,0,0,2" FontFamily="Verdana" FontSize="11" Padding="0,0,0,2"/>
                     <TextBox x:Name="txtSname" Height="30" Width="230" HorizontalAlignment="Left" Padding="5" BorderBrush="{Binding Foreground, ElementName=userControl}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Father's Name" Margin="0,0,0,2"/>
+                    <TextBlock Text="Father's Name" Margin="0,0,0,2" FontFamily="Verdana" FontSize="11" Padding="0,0,0,2"/>
                     <TextBox x:Name="txtFName" Height="30" Width="230" HorizontalAlignment="Left" Padding="5" BorderBrush="{Binding Foreground, ElementName=userControl}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Address" Margin="0,0,0,2"/>
+                    <TextBlock Text="Address" Margin="0,0,0,2" FontFamily="Verdana" FontSize="11" Padding="0,0,0,2"/>
                     <TextBox x:Name="txtAdd" Height="80" Width="230" HorizontalAlignment="Left" Padding="5" BorderBrush="{Binding Foreground, ElementName=userControl}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Contact" Margin="0,0,0,2"/>
+                    <TextBlock Text="Contact" Margin="0,0,0,2" FontFamily="Verdana" FontSize="11" Padding="0,0,0,2"/>
                     <TextBox x:Name="txtCon" Height="30" Width="170" HorizontalAlignment="Left" Padding="5" MaxLength="10" BorderBrush="{Binding Foreground, ElementName=userControl}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="VotedID Number" Margin="0,0,0,2"/>
+                    <TextBlock Text="VotedID Number" Margin="0,0,0,2" FontFamily="Verdana" FontSize="11" Padding="0,0,0,2"/>
                     <TextBox x:Name="txtVoter" Height="30" Width="170" HorizontalAlignment="Left" Padding="5" BorderBrush="{Binding Foreground, ElementName=userControl}"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="10">
                 <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Class" Margin="0,0,0,2"/>
+                    <TextBlock Text="Class" Margin="0,0,0,2" FontFamily="Verdana" FontSize="11" Padding="0,0,0,2"/>
                     <TextBox x:Name="txtClass" Height="30" Width="200" HorizontalAlignment="Left" Padding="5" BorderBrush="{Binding Foreground, ElementName=userControl}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Roll Number" Margin="0,0,0,2"/>
+                    <TextBlock Text="Roll Number" Margin="0,0,0,2" FontFamily="Verdana" FontSize="11" Padding="0,0,0,2"/>
                     <TextBox x:Name="txtRoll" Height="30" Width="200" HorizontalAlignment="Left" Padding="5" BorderBrush="{Binding Foreground, ElementName=userControl}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Section" Margin="0,0,0,2"/>
+                    <TextBlock Text="Section" Margin="0,0,0,2" FontFamily="Verdana" FontSize="11" Padding="0,0,0,2"/>
                     <TextBox x:Name="txtSec" Height="30" Width="200" HorizontalAlignment="Left" Padding="5" BorderBrush="{Binding Foreground, ElementName=userControl}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Library Card Number" Margin="0,0,0,2"/>
+                    <TextBlock Text="Library Card Number" Margin="0,0,0,2" FontFamily="Verdana" FontSize="11" Padding="0,0,0,2"/>
                     <TextBox x:Name="txtLB" Height="30" Width="200" HorizontalAlignment="Left" Padding="5" BorderBrush="{Binding Foreground, ElementName=userControl}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Bus ID" Margin="0,0,0,2"/>
+                    <TextBlock Text="Bus ID" Margin="0,0,0,2" FontFamily="Verdana" FontSize="11"/>
                     <TextBox x:Name="txtBus" Height="30" Width="200" HorizontalAlignment="Left" Padding="5" BorderBrush="{Binding Foreground, ElementName=userControl}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Status" Margin="0,0,0,2"/>
+                    <TextBlock Text="Status" Margin="0,0,0,2" FontFamily="Verdana" Padding="0,0,0,2"/>
                     <TextBlock x:Name="lblStatus" Width="210" Height="30" Text="Waiting..." FontSize="15" HorizontalAlignment="Left"/>
                 </StackPanel>
                 <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
@@ -74,6 +74,7 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="2" Name="ErrorPanel" Margin="0,0,0,0">
+               
             </StackPanel>
         </Grid>
     </StackPanel>

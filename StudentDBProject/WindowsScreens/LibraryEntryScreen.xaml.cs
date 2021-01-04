@@ -24,6 +24,7 @@ namespace StudentDBProject.WindowsScreens
         public LibraryEntryScreen()
         {
             InitializeComponent();
+            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             txtIdate.Text = DateTime.Today.Date.ToString("dd/MM/yyyy");
         }
 

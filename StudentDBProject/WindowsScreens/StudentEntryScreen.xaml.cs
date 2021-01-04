@@ -30,9 +30,10 @@ namespace StudentDBProject.WindowsScreens
         public StudentEntryScreen()
         {
             InitializeComponent();
+            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             FillWith();
             Pi = new ProgressIndicator(dts) { 
-                Height = 350
+                Height = 407
             };
             ErrorPanel.Children.Add(Pi);
             txtSname.Focus();
@@ -51,6 +52,7 @@ namespace StudentDBProject.WindowsScreens
             if (privateStudent != null)
             {
                 InitializeComponent();
+                Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
                 txtFName.Text = privateStudent.FatherName;
                 txtId.Text = privateStudent.studentId;
                 txtSname.Text = privateStudent.studentName;

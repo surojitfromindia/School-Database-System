@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace StudentDBProject.WindowsScreens
 {
@@ -15,6 +16,7 @@ namespace StudentDBProject.WindowsScreens
         public SearchWindow()
         {
             InitializeComponent();
+            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             if (ConnectionClass.Utype != "Admin")
             {
                 btnDeleteRecord.Visibility = Visibility.Collapsed;

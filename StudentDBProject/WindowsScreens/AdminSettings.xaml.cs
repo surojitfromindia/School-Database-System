@@ -20,9 +20,20 @@ namespace StudentDBProject.WindowsScreens
     /// </summary>
     public partial class AdminSettings : UserControl
     {
+
+
+        public event MouseEventHandler KD;
+
         public AdminSettings()
         {
             InitializeComponent();
+            changeColor.onColorSelect += ChangeColor_onColorSelect;
+            
+        }
+
+        private void ChangeColor_onColorSelect(object sender, MouseButtonEventArgs e)
+        {
+            KD?.Invoke(this, e);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentDBProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,10 +24,12 @@ namespace StudentDBProject.WindowsScreens
         public StudentSmallDetails()
         {
             InitializeComponent();
+            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
         }
         public StudentSmallDetails(string id, string name, string sec, string clas, string roll, string contact)
         {
             InitializeComponent();
+            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             txtName.Text = name;
             txtSID.Text = id;
             txtSec.Text = sec;

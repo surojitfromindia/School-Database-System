@@ -12,7 +12,7 @@
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
         <Label Content="Progress" FontSize="19" Foreground="{Binding Foreground, ElementName=userControl}"/>
-        <ListBox Name="p1" Grid.Row="1" Foreground="{Binding Foreground, ElementName=userControl}"  >
+        <ListBox Name="p1" Grid.Row="1" Foreground="{Binding Foreground, ElementName=userControl}" Background="{x:Null}" FontFamily="Segoe UI Semibold" FontSize="13"  >
 
         </ListBox>
         <StackPanel Grid.Row="2" Orientation="Horizontal">

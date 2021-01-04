@@ -24,11 +24,13 @@ namespace StudentDBProject.WindowsScreens
         public InstallmentPerId()
         {
             InitializeComponent();
+            b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
         }
 
         public InstallmentPerId(string sid)
         {
             InitializeComponent();
+            b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
             List<Installment> lbs = Installment.FindAllInstallment(sid);
             if (lbs.Count > 0)
             {

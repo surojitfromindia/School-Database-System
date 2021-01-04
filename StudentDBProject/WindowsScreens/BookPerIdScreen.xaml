@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
              mc:Ignorable="d" 
              d:DesignHeight="450"  Width="500" MaxHeight="500" Margin="10" d:DesignWidth="550">
-    <Border CornerRadius="12" Background="#FF125EAA">
+    <Border CornerRadius="12" Name="b1">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -17,7 +17,7 @@
                 <Label  VerticalAlignment="Center" Content="Books Transaction Info" Foreground="White" FontSize="22"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBox Padding="5" Width="120" VerticalAlignment="Center"  Margin="5,0,10,0"/>
-                    <Button   Width="45" Height="28" VerticalAlignment="Center"  Content="F" BorderBrush="{x:Null}" Background="#FF2C7AC9" Foreground="White" />
+                    <Button   Width="45" Height="28" VerticalAlignment="Center"  Content="F" BorderBrush="White" Background="{x:Null}" Foreground="White" />
                 </StackPanel>
 
             </StackPanel>

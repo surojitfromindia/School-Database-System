@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
              mc:Ignorable="d" 
-             d:DesignHeight="75.191" d:DesignWidth="300.327" Foreground="#FF125EAA">
+             d:DesignHeight="75.191" d:DesignWidth="300.327">
     <StackPanel >
         <Grid Margin="5">
             <Grid.RowDefinitions>

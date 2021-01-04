@@ -103,6 +103,9 @@
     <Compile Include="WindowsScreens\MiniBusInfo.xaml.cs">
       <DependentUpon>MiniBusInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowsScreens\MiniControls\ChageColor.xaml.cs">
+      <DependentUpon>ChageColor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowsScreens\ProgressIndicator.xaml.cs">
       <DependentUpon>ProgressIndicator.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowsScreens\MiniBusInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowsScreens\MiniControls\ChageColor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

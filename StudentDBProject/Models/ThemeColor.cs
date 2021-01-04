@@ -7,19 +7,43 @@ using System.Windows.Media;
 
 namespace StudentDBProject.Models
 {
-    class ThemeColor
+    static class ThemeColor
     {
       
-        public static Color currentAcColor = (Color)ColorConverter.ConvertFromString("#FF125EAA");        
+        public static Color currentAcColor = ChangeAccentColor(ColorCode.CoolBlue);
 
-        public static void ChangeColor(int code)
+        public static Color currentBackgroundColor =ChangeBackgroundColor(ColorCode.Light);
+
+
+        public static Color ChangeAccentColor(ColorCode c)
         {
-            switch (code)
+            Color currentAcColor = new Color() ;
+            switch (c)
             {
-                case 1: currentAcColor = Colors.Purple; break;
-                case 2: currentAcColor = Colors.RoyalBlue; break;
+                case ColorCode.Fire: currentAcColor = (Color)ColorConverter.ConvertFromString("#FFC97A2A"); break;
+                case ColorCode.Mint: currentAcColor = (Color)ColorConverter.ConvertFromString("#FF05AA75"); break;
+                case ColorCode.CoolBlue: currentAcColor = (Color)ColorConverter.ConvertFromString("#FF125EAA"); break;
             }
-           
+            return currentAcColor;
         }
+        public static Color ChangeBackgroundColor(ColorCode c)
+        {
+            Color currentBackColor = new Color();
+            switch (c)
+            {
+                case ColorCode.Dark: currentBackColor = (Color)ColorConverter.ConvertFromString("#FF343434"); break;
+                case ColorCode.Light: currentBackColor = Colors.White; break;
+            }
+            return currentBackColor;
+        }
+    }
+
+    enum ColorCode
+    {
+        Fire = 1,
+        Mint = 2,
+        CoolBlue =3,
+        Dark = 4,
+        Light = 5,
     }
 }

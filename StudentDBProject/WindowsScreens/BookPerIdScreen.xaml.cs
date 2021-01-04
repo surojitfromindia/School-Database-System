@@ -24,11 +24,13 @@ namespace StudentDBProject.WindowsScreens
         public BookPerIdScreen()
         {
             InitializeComponent();
+            b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
         }
 
         public BookPerIdScreen(string sid)
         {
             InitializeComponent();
+            b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
             List<Library> lbs = Library.FindAllBooks(sid);
             if (lbs.Count > 0)
             {

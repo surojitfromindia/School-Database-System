@@ -1,52 +1,52 @@
-﻿<UserControl x:Class="StudentDBProject.WindowsScreens.WelcomeHelpScreen"
+﻿<UserControl x:Name="userControl" x:Class="StudentDBProject.WindowsScreens.WelcomeHelpScreen"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
              mc:Ignorable="d" 
-             d:DesignHeight="530" d:DesignWidth="800" Foreground="#FFD82698" FontSize="12">
+             d:DesignHeight="530" d:DesignWidth="800"  FontSize="12">
     <StackPanel>
-        <Label Padding="0,5,5,0" Content="School  Box 1.20" FontSize="25" Foreground="#FF125EAA" Margin="10,10,10,0" FontFamily="Montserrat SemiBold"/>
-        <Label Padding="0,5,5,5" Content="copyright 2029 - 2020" FontSize="15" Foreground="#FF125EAA" Margin="10,0,10,0" FontFamily="Montserrat Medium"/>
-        <TextBlock TextWrapping="Wrap" Text="Welcome to School Management 1.0. This soulution is equiped with powerfull database storing system. with help of GUI administer can entry, update, delete data. Seach with mutliple fillter, is a feature very helpfull. database secured with uncompronmisable user verification system. Admin is given the full pontential as well as feature and usage allowance." Width="613" HorizontalAlignment="Left" Margin="10,10,0,10" Foreground="#FFD82698" FontSize="13" FontFamily="Montserrat"/>
-        <TextBlock TextWrapping="Wrap" Text="Welcome to School Management 1.0. This soulution is equiped with powerfull database storing system. with help of GUI administer can entry, update, delete data. Seach with mutliple fillter, is a feature very helpfull. database secured with uncompronmisable user verification system. Admin is given the full pontential as well as feature and usage allowance." Width="531" HorizontalAlignment="Left" Margin="10,10,0,10" Foreground="#FFD82698" FontSize="8" FontFamily="Montserrat Medium" FontWeight="Bold"/>
-        <Label Padding="0,5,5,5" Content="List Of Changes" FontSize="12" Foreground="#FFD82698" Margin="10,0,0,0"/>
-        <ListBox Width="710" Margin="10,0,0,0" HorizontalAlignment="Left" Height="139">
+        <Label Padding="0,5,5,0" Content="School  Box 1.20" FontSize="25" Foreground="{Binding Foreground, ElementName=userControl}" Margin="10,10,10,0" FontFamily="Montserrat SemiBold"/>
+        <Label Padding="0,5,5,5" Content="copyright 2029 - 2020" FontSize="15" Foreground="{Binding Foreground, ElementName=userControl}" Margin="10,0,10,0" FontFamily="Montserrat Medium"/>
+        <TextBlock TextWrapping="Wrap" Text="Welcome to School Management 1.0. This soulution is equiped with powerfull database storing system. with help of GUI administer can entry, update, delete data. Seach with mutliple fillter, is a feature very helpfull. database secured with uncompronmisable user verification system. Admin is given the full pontential as well as feature and usage allowance." Width="613" HorizontalAlignment="Left" Margin="10,10,0,10" Foreground="#FFD893CF" FontSize="13" FontFamily="Montserrat"/>
+        <TextBlock TextWrapping="Wrap" Text="Welcome to School Management 1.0. This soulution is equiped with powerfull database storing system. with help of GUI administer can entry, update, delete data. Seach with mutliple fillter, is a feature very helpfull. database secured with uncompronmisable user verification system. Admin is given the full pontential as well as feature and usage allowance." Width="531" HorizontalAlignment="Left" Margin="10,10,0,10" Foreground="#FFD893CF" FontSize="11" FontFamily="Montserrat Medium" FontWeight="Bold"/>
+        <Label Padding="0,5,5,5" Content="List Of Changes" FontSize="12" Foreground="{Binding Foreground, ElementName=userControl}" Margin="10,0,0,0"/>
+        <ListBox Width="710" Margin="10,0,0,0" HorizontalAlignment="Left" Height="139" Foreground="{Binding Foreground, ElementName=userControl}" BorderBrush="{Binding Foreground, ElementName=userControl}" Background="{x:Null}" >
             <ListBoxItem>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Padding="1" Text="Product Launch" Foreground="#FF125EAA" Width="600" />
-                    <TextBlock Padding="1" Text="Beta 1.0" Foreground="#FF125EAA" Margin="20,0,0,0" />
+                    <TextBlock Padding="1" Text="Product Launch"  Width="600" />
+                    <TextBlock Padding="1" Text="Beta 1.0"  Margin="20,0,0,0" />
                 </StackPanel>
             </ListBoxItem>
             <ListBoxItem>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Padding="1" Text="Help Screen Added." Foreground="#FF125EAA" Width="600" />
-                    <TextBlock Padding="1" Text="Beta 1.1" Foreground="#FF125EAA" Margin="20,0,0,0" />
+                    <TextBlock Padding="1" Text="Help Screen Added." Width="600" />
+                    <TextBlock Padding="1" Text="Beta 1.1"  Margin="20,0,0,0" />
                 </StackPanel>
             </ListBoxItem>
             <ListBoxItem>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Padding="1" Text="Number of entry is shown above item list in search tab." Foreground="#FF125EAA" Width="600" />
-                    <TextBlock Padding="1" Text="Beta 1.1" Foreground="#FF125EAA" Margin="20,0,0,0" />
+                    <TextBlock Padding="1" Text="Number of entry is shown above item list in search tab."  Width="600" />
+                    <TextBlock Padding="1" Text="Beta 1.1" Margin="20,0,0,0" />
                 </StackPanel>
             </ListBoxItem>
             <ListBoxItem>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Padding="1" Text="Small info of Bus, Book and Monthly installment" Foreground="#FF125EAA" Width="600" />
-                    <TextBlock Padding="1" Text="Beta 1.1" Foreground="#FF125EAA" Margin="20,0,0,0" />
+                    <TextBlock Padding="1" Text="Small info of Bus, Book and Monthly installment"  Width="600" />
+                    <TextBlock Padding="1" Text="Beta 1.1" Margin="20,0,0,0" />
                 </StackPanel>
             </ListBoxItem>
             <ListBoxItem>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Padding="1" Text="Delete now work on all table" Foreground="#FF125EAA" Width="600" />
-                    <TextBlock Padding="1" Text="Beta 1.2" Foreground="#FF125EAA" Margin="20,0,0,0" />
+                    <TextBlock Padding="1" Text="Delete now work on all table"  Width="600" />
+                    <TextBlock Padding="1" Text="Beta 1.2"  Margin="20,0,0,0" />
                 </StackPanel>
             </ListBoxItem>
             <ListBoxItem>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Padding="1" Text="All Date input fields now have current date by deafault" Foreground="#FF125EAA" Width="600" />
-                    <TextBlock Padding="1" Text="Beta 1.2" Foreground="#FF125EAA" Margin="20,0,0,0" />
+                    <TextBlock Padding="1" Text="All Date input fields now have current date by deafault"  Width="600" />
+                    <TextBlock Padding="1" Text="Beta 1.2"  Margin="20,0,0,0" />
                 </StackPanel>
             </ListBoxItem>
 
@@ -54,15 +54,14 @@
 
         <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
             <StackPanel Margin="10,0,0,0">
-                <Label Padding="0,5,5,5" Content="Help" FontSize="12" Foreground="#FFD82698" />
-                <ListBox Width="151" Name="listHelpOpt"  HorizontalAlignment="Left" Height="95" SelectionChanged="listHelpOpt_SelectionChanged">
-                    
+                <Label Padding="0,5,5,5" Content="Help" FontSize="12" Foreground="{Binding Foreground, ElementName=userControl}"  />
+                <ListBox Width="151" Name="listHelpOpt"  HorizontalAlignment="Left" Height="95" SelectionChanged="listHelpOpt_SelectionChanged" Foreground="{Binding Foreground, ElementName=userControl}" Background="{x:Null}">
                 </ListBox>
             </StackPanel>
             <StackPanel Margin="10,0,0,0">
-                <Label Padding="0,5,5,5" Content="Description" FontSize="12" Foreground="#FFD82698" />
-                <TextBox x:Name="txtDes" Padding="2" Width="550"  HorizontalAlignment="Left" Height="96" Foreground="#FFD82698">
-                    
+                <Label Padding="0,5,5,5" Content="Description" FontSize="12" Foreground="{Binding Foreground, ElementName=userControl}" />
+                <TextBox x:Name="txtDes" Padding="2" Width="550"  HorizontalAlignment="Left" Height="96" Background="{x:Null}" Foreground="{Binding Foreground, ElementName=userControl}" >
+
                 </TextBox>
             </StackPanel>
         </StackPanel>
