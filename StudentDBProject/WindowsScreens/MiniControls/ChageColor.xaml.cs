@@ -23,8 +23,6 @@ namespace StudentDBProject.WindowsScreens.MiniControls
     {
 
         private static Ellipse lastSelectedAccentOption;
-        private static Ellipse lastSelectedBackgroundOption;
-        private static bool isFirstLaunch = true;
         public event MouseButtonEventHandler onColorSelect;
         private Ellipse[] ColorAccentOptionEllipse;
         private Ellipse[] ColorBackgroundOptionEllipse;
@@ -35,36 +33,19 @@ namespace StudentDBProject.WindowsScreens.MiniControls
             Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
 
             //Set Color Circle as default controls.
-            if (isFirstLaunch)
-            {
-                defaultBackAndAccentColor(CoolBlue, Light);
-                isFirstLaunch = false;
-            }
+            defaultBackAndAccentColor(Mint, Light);
+             
             //Store All Color Options Control Here
             //When user Select/Click one of the Color Cicle
             //Reset Unselected Option will go back to their unselected dimenssion (45 x 45)
-            ColorAccentOptionEllipse = new Ellipse[] { Fire, Mint, CoolBlue };
+            ColorAccentOptionEllipse = new Ellipse[] { Fire, Mint, CoolBlue, White };
             ColorBackgroundOptionEllipse = new Ellipse[] { Dark, Light };
-
-            //When User Open The Admin Panel Again,
-            //last selected option will show it's selected size (40 x 40)
-            if (lastSelectedAccentOption != null)
-            {
-                Ellipse elps = (Ellipse)FindName(lastSelectedAccentOption.Name);
-                elps.Width = 35;
-                elps.Height = 35;
-            }
-            if (lastSelectedBackgroundOption != null)
-            {
-                Ellipse elps = (Ellipse)FindName(lastSelectedBackgroundOption.Name);
-                elps.Width = 35;
-                elps.Height = 35;
-            }
 
             //Color Circles Select/Click Events
             Fire.MouseDown += onAccentColorOptionClick;
             Mint.MouseDown += onAccentColorOptionClick;
             CoolBlue.MouseDown += onAccentColorOptionClick;
+            White.MouseDown += onAccentColorOptionClick;
             Dark.MouseDown += onBackgroundColorOptionClick;
             Light.MouseDown += onBackgroundColorOptionClick;
 
@@ -82,15 +63,20 @@ namespace StudentDBProject.WindowsScreens.MiniControls
                     }
                 case "Light":
                     {
+                        ThemeColor.currentAcColor = ThemeColor.ChangeAccentColor(ColorCode.Mint);
                         ThemeColor.currentBackgroundColor = ThemeColor.ChangeBackgroundColor(ColorCode.Light);
+                        ThemeColor.currentFontColor = ThemeColor.ChangeAccentColor(ColorCode.White);
+                        if (lastSelectedAccentOption!=null && lastSelectedAccentOption.Name == "White")
+                        {
+                            UnSelectAllAccentColorOption();
+                            PointSelectedColorOption(Mint);
+                        }
                         break;
                     }
             }
             UnSelectAllBackgroundColorOption();
-            var temp = (Ellipse)sender;
-            lastSelectedBackgroundOption = temp;
-            temp.Width = 40;
-            temp.Height = 40;
+            PointSelectedColorOption((Ellipse)sender);
+            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             onColorSelect?.Invoke(this, e);
         }
 
@@ -102,36 +88,44 @@ namespace StudentDBProject.WindowsScreens.MiniControls
                 case "Fire":
                     {
                         ThemeColor.currentAcColor = ThemeColor.ChangeAccentColor(ColorCode.Fire);
+                        ThemeColor.currentFontColor = ThemeColor.ChangeFontColor(ColorCode.White);
                         break;
                     }
                 case "Mint":
                     {
                         ThemeColor.currentAcColor = ThemeColor.ChangeAccentColor(ColorCode.Mint);
+                        ThemeColor.currentFontColor = ThemeColor.ChangeFontColor(ColorCode.White);
                         break;
                     }
                 case "CoolBlue":
                     {
                         ThemeColor.currentAcColor = ThemeColor.ChangeAccentColor(ColorCode.CoolBlue);
+                        ThemeColor.currentFontColor = ThemeColor.ChangeFontColor(ColorCode.White);
                         break;
                     }
-                case "Dark":
+                case "White":
                     {
+                        ThemeColor.currentAcColor = ThemeColor.ChangeAccentColor(ColorCode.White);
+                        ThemeColor.currentFontColor = ThemeColor.ChangeFontColor(ColorCode.Dark);
                         ThemeColor.currentBackgroundColor = ThemeColor.ChangeBackgroundColor(ColorCode.Dark);
+                        UnSelectAllBackgroundColorOption();
+                        PointSelectedColorOption(Dark);
                         break;
                     }
-                case "Light":
-                    {
-                        ThemeColor.currentBackgroundColor = ThemeColor.ChangeBackgroundColor(ColorCode.Light);
-                        break;
-                    }
+
             }
             UnSelectAllAccentColorOption();
-            var temp = (Ellipse)sender;
-            lastSelectedAccentOption = temp;
-            temp.Width = 35;
-            temp.Height = 35;
-            onColorSelect?.Invoke(this, e);
+            lastSelectedAccentOption =(Ellipse)sender;
+            PointSelectedColorOption((Ellipse)sender);
             Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
+            onColorSelect?.Invoke(this, e);  
+        }
+
+        void PointSelectedColorOption(Ellipse es)
+        {
+           
+            es.Width = 35;
+            es.Height = 35;
         }
 
         void UnSelectAllAccentColorOption()
