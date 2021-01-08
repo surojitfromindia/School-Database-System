@@ -12,9 +12,9 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="37*"/>
         </Grid.RowDefinitions>
-        <StackPanel>
-            
+        <StackPanel Grid.Row="0">
+            <MiniControls:ChageColor Width="375" x:Name="changeColor" HorizontalAlignment="Left" />
         </StackPanel>
-       <MiniControls:ChageColor Width="375" x:Name="changeColor" HorizontalAlignment="Left" />
+      
     </Grid>
 </UserControl>

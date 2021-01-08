@@ -26,7 +26,7 @@
             </Grid.ColumnDefinitions>
             <Ellipse Grid.Column="0" Name="Fire" Fill="#FFC97A2A" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" />
             <Ellipse Grid.Column="1" Name="Mint"  Fill="#FF05AA75" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center"   />
-            <Ellipse Grid.Column="2" Name="CoolBlue"  Fill="#FF125EAA" HorizontalAlignment="Center" Height="40" Width="40" VerticalAlignment="Center"   />
+            <Ellipse Grid.Column="2" Name="CoolBlue"  Fill="#FF125EAA" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center"   />
         </Grid>
         <TextBlock Grid.Row="0" Grid.Column="2" Text="Background" FontSize="13" Margin="15,0,0,0"/>
         <Grid Grid.Row="1" Grid.Column="2">
@@ -36,7 +36,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Ellipse Grid.Column="0" Name="Dark" Fill="#FF424242" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" />
-            <Ellipse Grid.Column="1" Name="Light"  Fill="#FFCDCFCE" HorizontalAlignment="Center" Height="40" Width="40" VerticalAlignment="Center"   />
+            <Ellipse Grid.Column="1" Name="Light"  Fill="#FFCDCFCE" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center"   />
         </Grid>
     </Grid>
 </UserControl>

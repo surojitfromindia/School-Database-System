@@ -9,40 +9,45 @@ namespace StudentDBProject.Models
 {
     class Bus
     {
-        public string sid;
-        public string bid;
-        public int inst;
-        public string rp;
-        public DateTime pDate;
-        public double fine;
-        public int install;
+        public string StudentID;
+        public string BusId;
+        public int Installment;
+        public string Report;
+        public DateTime PaymentDate;
+        public double FineAmount;
 
-        //For Search Purpose
-        public Bus(string studentID)
-        {
-            sid = studentID;
-        }
         //For Record Purpose
         public Bus(string studentId, string bid, int install,
             DateTime pDate, double fine, string report)
         {
-            sid = studentId;
-            this.bid = bid;
-            inst = install;
-            this.pDate = pDate;
-            this.fine = fine;
-            rp = report;
+            StudentID = studentId;
+            BusId = bid;
+            Installment = install;
+            PaymentDate = pDate;
+            FineAmount = fine;
+            Report = report;
+        }
+
+        public void Deconstruct(out string studentId, out string bid, out int install,
+           out DateTime pDate, out double fine, out string report)
+        {
+            studentId = StudentID;
+            bid = BusId;
+            install = Installment ;
+            pDate = PaymentDate;
+            fine = FineAmount;
+            report= Report ;
         }
 
         public bool Create()
         {
             string commandString = "insert into Bus values(@sid, @bid, @ins, @pdate, @fine, 'Paid')";
             OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
-            cmd.Parameters.AddWithValue("@sid", sid);
-            cmd.Parameters.AddWithValue("@bid", sid + "B");
-            cmd.Parameters.AddWithValue("@ins", inst);
-            cmd.Parameters.AddWithValue("@pdate", pDate);
-            cmd.Parameters.AddWithValue("@fine", fine);
+            cmd.Parameters.AddWithValue("@sid", StudentID);
+            cmd.Parameters.AddWithValue("@bid", StudentID + "B");
+            cmd.Parameters.AddWithValue("@ins", Installment);
+            cmd.Parameters.AddWithValue("@pdate", PaymentDate);
+            cmd.Parameters.AddWithValue("@fine", FineAmount);
             int i = cmd.ExecuteNonQuery();
             return i == 1 ? true : false;
         }

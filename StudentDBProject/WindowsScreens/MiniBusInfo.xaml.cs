@@ -19,6 +19,8 @@ namespace StudentDBProject.WindowsScreens
     /// <summary>
     /// Interaction logic for MiniBusInfo.xaml
     /// </summary>
+    /// 
+
     public partial class MiniBusInfo : UserControl
     {
         private string id;
@@ -31,9 +33,10 @@ namespace StudentDBProject.WindowsScreens
         public MiniBusInfo(string id)
         {
             InitializeComponent();
+            b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
             this.id = id;
             LoadInfo();
-            b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
+           
         }
 
         private void LoadInfo()
@@ -41,11 +44,9 @@ namespace StudentDBProject.WindowsScreens
             Bus b = Bus.FindBusI(id);
             if (b != null)
             {
-                lblBusID.Content = b.bid;
-                lblAmount.Content = b.inst.ToString();
-                lblReport.Content = b.rp;
-                lblPDate.Content = b.pDate.ToString("dd/MM/yyyy");
-                lblFine.Content = b.fine.ToString();
+                (_, lblBusID.Content, lblAmount.Content,
+                      lblReport.Content, lblPDate.Content, lblFine.Content) = b;
+
             }
         }
     }

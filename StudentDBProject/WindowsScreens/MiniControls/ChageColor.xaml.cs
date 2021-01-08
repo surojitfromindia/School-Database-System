@@ -51,14 +51,14 @@ namespace StudentDBProject.WindowsScreens.MiniControls
             if (lastSelectedAccentOption != null)
             {
                 Ellipse elps = (Ellipse)FindName(lastSelectedAccentOption.Name);
-                elps.Width = 40;
-                elps.Height = 40;
+                elps.Width = 35;
+                elps.Height = 35;
             }
             if (lastSelectedBackgroundOption != null)
             {
                 Ellipse elps = (Ellipse)FindName(lastSelectedBackgroundOption.Name);
-                elps.Width = 40;
-                elps.Height = 40;
+                elps.Width = 35;
+                elps.Height = 35;
             }
 
             //Color Circles Select/Click Events
@@ -128,8 +128,8 @@ namespace StudentDBProject.WindowsScreens.MiniControls
             UnSelectAllAccentColorOption();
             var temp = (Ellipse)sender;
             lastSelectedAccentOption = temp;
-            temp.Width = 40;
-            temp.Height = 40;
+            temp.Width = 35;
+            temp.Height = 35;
             onColorSelect?.Invoke(this, e);
             Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
         }
@@ -154,8 +154,8 @@ namespace StudentDBProject.WindowsScreens.MiniControls
 
         void defaultBackAndAccentColor(Ellipse acColor, Ellipse baColor)
         {
-            acColor.Width = 40; acColor.Height = 40;
-            baColor.Width = 40; baColor.Height = 40;
+            acColor.Width = 35; acColor.Height = 35;
+            baColor.Width = 35; baColor.Height = 35;
         }
     }
 }

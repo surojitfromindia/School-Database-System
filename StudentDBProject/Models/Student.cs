@@ -27,34 +27,67 @@ namespace StudentDBProject.Models
             studentName = sName;
         }
 
-        public Student(string studentId, string studentName,
-         string FatherName,
-         string address,
-         string phone,
-         string VID,
-         string ClassName,
-         int RollNumber,
-         string section,
-         string LibraCard,
-         string BusCard)
+        public Student(
+            string studentId,
+            string studentName,
+            string FatherName,
+            string address,
+            string phone,
+            string VID,
+            string ClassName,
+            int RollNumber,
+            string section,
+            string LibraCard,
+            string BusCard
+            )
         {
-            this.studentName = studentName;
             this.studentId = studentId;
-            this.FatherName= FatherName;
-            this.address=address;
+            this.studentName = studentName;
+            this.FatherName = FatherName;
+            this.address = address;
             this.phone = phone;
-            this.VID= VID;
-            this.ClassName= ClassName;
+            this.VID = VID;
+            this.ClassName = ClassName;
             this.RollNumber = RollNumber;
             this.section = section;
             this.LibraCard = LibraCard;
             this.BusCard = BusCard;
         }
 
-        public bool Create() {
+        public void Deconstruct(
+            out string studentId,
+            out string studentName,
+            out string FatherName,
+            out string address,
+            out string phone,
+            out string VID,
+            out string ClassName,
+            out int RollNumber,
+            out string section,
+            out string LibraCard,
+            out string BusCard
+
+            )
+        {
+            studentId = this.studentId;
+            studentName = this.studentName;
+            FatherName = this.FatherName;
+            address = this.address;
+            phone = this.phone;
+            VID = this.VID;
+            ClassName = this.ClassName;
+            RollNumber = this.RollNumber;
+            section = this.section;
+            LibraCard = this.LibraCard;
+            BusCard = this.BusCard;
+        }
+
+
+        public bool Create()
+        {
             string ss = "insert into Student values(@uid, @uname, @ufaname, @uadd," +
                 " @uph, @uvid, @uclass, @uRoll, @usec, @ulib, @ubus)";
-            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);           
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
             cmd.Parameters.AddWithValue("@uid", studentId);
             cmd.Parameters.AddWithValue("@uname", studentName);
             cmd.Parameters.AddWithValue("@ufaname", FatherName);
@@ -66,11 +99,12 @@ namespace StudentDBProject.Models
             cmd.Parameters.AddWithValue("@usec", section);
             cmd.Parameters.AddWithValue("@ulib", LibraCard);
             cmd.Parameters.AddWithValue("@ubus", BusCard);
-            int i =cmd.ExecuteNonQuery();
-            return i==1 ? true : false;
+            int i = cmd.ExecuteNonQuery();
+            return i == 1 ? true : false;
         }
 
-        public static int nextRoll(string className) {
+        public static int nextRoll(string className)
+        {
 
             int p = 1;
             string ss = "select max(RNo) from Student where Cla = @clas";
@@ -79,12 +113,13 @@ namespace StudentDBProject.Models
             object j = cmd.ExecuteScalar();
             if (j != DBNull.Value)
             {
-                p = (int)j+1;
+                p = (int)j + 1;
             }
             return p;
         }
 
-        public static bool deleteRecord(string studentID) {
+        public static bool deleteRecord(string studentID)
+        {
             string commandString = "delete from Student where SId = @uid";
             OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
             cmd.Parameters.AddWithValue("@uid", studentID);
@@ -115,7 +150,7 @@ namespace StudentDBProject.Models
             cmd.Parameters.AddWithValue("@uid", newInfo.studentId);
             int i = cmd.ExecuteNonQuery();
             bool i2 = newInfo.Create();
-            return (i==1 && i2) ? true : false;
+            return (i == 1 && i2) ? true : false;
         }
 
         public static Student FindStudent(string studentID)
@@ -125,11 +160,12 @@ namespace StudentDBProject.Models
             OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
             cmd.Parameters.AddWithValue("@sid", studentID);
             OleDbDataReader j = cmd.ExecuteReader();
-            while (j.Read()) {
+            while (j.Read())
+            {
                 s = new Student(
-                    j.GetString(0), j.GetString(1), j.GetString(2), 
+                    j.GetString(0), j.GetString(1), j.GetString(2),
                     j.GetString(3), j.GetString(4), j.GetString(5), j.GetString(6)
-                    ,j.GetInt32(7), j.GetString(8), j.GetString(9), j.GetString(10)
+                    , j.GetInt32(7), j.GetString(8), j.GetString(9), j.GetString(10)
                     );
             }
 
@@ -140,7 +176,7 @@ namespace StudentDBProject.Models
         {
             List<Student> sl = new List<Student>();
             string ss = "select * from Student";
-            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);           
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
             OleDbDataReader j = cmd.ExecuteReader();
             while (j.Read())
             {
@@ -161,6 +197,79 @@ namespace StudentDBProject.Models
             OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
             int i = (int)cmd.ExecuteScalar();
             return i;
+        }
+
+
+    }
+    public static class StudentInfoVerification
+    {
+        public static bool IsStudentNameValid(string studentName)
+        {
+            studentName = studentName.Trim();
+            bool isAllChar = true;
+            if (studentName.Length > 0)
+                foreach (char c in studentName)
+                {
+                    int p = c;
+                    Console.Write(c);
+                    if ((c >= 65 && c <= 90) || c == 32)
+                        isAllChar = true;
+                    else
+                    {
+                        isAllChar = false;
+                        break;
+                    }
+                }
+            return studentName.Contains(" ") && isAllChar;
+        }
+        public static bool IsGurdianNameValid(string gurdianName)
+        {
+            gurdianName = gurdianName.Trim();
+            bool isAllChar = true;
+            if (gurdianName.Length > 0)
+                foreach (char c in gurdianName)
+                {
+                    int p = c;
+                    Console.Write(c);
+                    if ((c >= 65 && c <= 90) || c == 32)
+                        isAllChar = true;
+                    else
+                    {
+                        isAllChar = false;
+                        break;
+                    }
+                }
+            return gurdianName.Contains(" ") && isAllChar;
+        }
+        public static bool IsAddressrValid(string address)
+        {
+            address = address.Trim();
+            return address.Contains(" ");
+        }
+        public static bool IsContactNumberValid(string contactNumber)
+        {
+            contactNumber = contactNumber.Trim();
+            bool isAllChar = true;
+            if (contactNumber.Length > 0)
+                foreach (char c in contactNumber)
+                {
+                    int p = c;
+                    Console.Write(c);
+                    if ((c >= 48 && c <= 57))
+                        isAllChar = true;
+                    else
+                    {
+                        isAllChar = false;
+                        break;
+                    }
+                }
+            return contactNumber.Length == 10 && isAllChar;
+        }
+
+        public static bool IsClassIDValid(string classID)
+        {
+            classID = classID.Trim();
+            return classID.Length == 7;
         }
     }
 }

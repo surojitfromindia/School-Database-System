@@ -1,41 +1,29 @@
-﻿using StudentDBProject.Models;
-using System;
+﻿using ErrorInfoWindow;
+using StudentDBProject.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace StudentDBProject.WindowsScreens
 {
-    /// <summary>
-    /// Interaction logic for StudentEntryScreen.xaml
-    /// </summary>
     public partial class StudentEntryScreen : UserControl
     {
-        string id;
-        string busid;
-        string libid;
-        readonly ProgressIndicator Pi;
+        private string id;
+        private string busid;
+        private string libid;
+        readonly List<DataEntryErrorInfoClass> dts = new List<DataEntryErrorInfoClass>();
 
-        List<DataEntryErrorInfoClass> dts = new List<DataEntryErrorInfoClass>();
+        //Default Constructor for this class
         public StudentEntryScreen()
         {
             InitializeComponent();
             Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
-            FillWith();
-            Pi = new ProgressIndicator(dts) { 
-                Height = 407
-            };
-            ErrorPanel.Children.Add(Pi);
+            //Set ProgressIndicator's properties
+            PopulateErrorActionList();
+            PI.ErrorDetailsAndAction = dts;
+            PI.SetAccColor(ThemeColor.currentAcColor);
             txtSname.Focus();
             txtRoll.TextChanged += onTextChange;
             txtClass.TextChanged += onTextChange;
@@ -44,8 +32,11 @@ namespace StudentDBProject.WindowsScreens
             txtFName.TextChanged += onTextChange;
             txtCon.TextChanged += onTextChange;
             txtAdd.TextChanged += onTextChange;
+            txtAdhar.TextChanged += TxtAdhar_TextChanged;
         }
-
+        
+        //This Constructor used in SearchWindow.cs
+        //to show searched data only if matchs are found in database.
         public StudentEntryScreen(string searchID)
         {
             Student privateStudent = Student.FindStudent(searchID);
@@ -53,35 +44,41 @@ namespace StudentDBProject.WindowsScreens
             {
                 InitializeComponent();
                 Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
-                txtFName.Text = privateStudent.FatherName;
-                txtId.Text = privateStudent.studentId;
-                txtSname.Text = privateStudent.studentName;
-                txtAdd.Text = privateStudent.address;
-                txtCon.Text = privateStudent.phone;
-                txtVoter.Text = privateStudent.VID;
-                txtClass.Text = privateStudent.ClassName;
-                txtRoll.Text = privateStudent.RollNumber.ToString();
-                txtSec.Text = privateStudent.section;
-                txtBus.Text = privateStudent.BusCard;
-                txtLB.Text = privateStudent.LibraCard;
-
+                int? roll;
+                (txtId.Text, txtSname.Text, txtFName.Text, txtAdd.Text,
+                    txtCon.Text, txtAdhar.Text, txtClass.Text, roll,
+                    txtSec.Text, txtLB.Text, txtBus.Text) = privateStudent;
+                txtRoll.Text = roll.ToString();
+                //New Form Entry , Transaction, Error Information Controls are disabled
+                // so, user can't Entry a new record 
+                //but able to update recordrs already exsists.
                 btnTra.Visibility = Visibility.Collapsed;
                 btnNewForm.Visibility = Visibility.Collapsed;
                 lblStatus.Visibility = Visibility.Hidden;
+                PI.Visibility = Visibility.Collapsed;
             }
         }
 
+        private void TxtAdhar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string te = txtAdhar.Text;
+            if (te.Length == 4)
+            {
+                txtAdhar.Text = txtAdhar.Text + "-";
+                txtAdhar.CaretIndex = 5;
+            }
+        }
 
 
         private void onTextChange(object sender, TextChangedEventArgs e)
         {
             GenerateIDBUSLIB();
-            Pi.UpdateChecking();
+            PI.UpdateChecking();
         }
 
         private void btnTra_Click(object sender, RoutedEventArgs e)
         {
-            Student newStudent = new Student(id, txtSname.Text, txtFName.Text, txtAdd.Text, txtCon.Text, txtVoter.Text, txtClass.Text, int.Parse(txtRoll.Text), txtSec.Text, libid, busid);
+            Student newStudent = new Student(id, txtSname.Text, txtFName.Text, txtAdd.Text, txtCon.Text, txtAdhar.Text, txtClass.Text, int.Parse(txtRoll.Text), txtSec.Text, libid, busid);
             lblStatus.Text = newStudent.Create().ToString();
         }
 
@@ -102,7 +99,7 @@ namespace StudentDBProject.WindowsScreens
         void NewFrom()
         {
             txtSname.Clear(); txtId.Clear(); txtFName.Clear();
-            txtVoter.Clear(); txtRoll.Clear(); txtSec.Clear();
+            txtAdhar.Clear(); txtRoll.Clear(); txtSec.Clear();
             txtAdd.Clear(); txtLB.Clear(); txtBus.Clear();
             txtSec.Clear(); txtClass.Clear(); txtCon.Clear();
             txtRoll.Text = "";
@@ -110,83 +107,45 @@ namespace StudentDBProject.WindowsScreens
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Student newStudent = new Student(txtId.Text, txtSname.Text, txtFName.Text, txtAdd.Text, txtCon.Text, txtVoter.Text, txtClass.Text, int.Parse(txtRoll.Text), txtSec.Text, txtLB.Text, txtBus.Text);
+            Student newStudent = new Student(
+                txtId.Text, txtSname.Text,
+                txtFName.Text, txtAdd.Text,
+                txtCon.Text, txtAdhar.Text,
+                txtClass.Text, int.Parse(txtRoll.Text),
+                txtSec.Text, txtLB.Text,
+                txtBus.Text);
             MessageBox.Show(Student.update(newStudent) ? "Record Update" : "Unsuccessful");
         }
 
 
         //Validity Checking
-        bool NameCheck()
-        {
-            bool isAllChar = true;
-            if (txtSname.Text.Length > 0)
-                foreach (char c in txtSname.Text)
-                {
-                    int p = c;
-                    Console.Write(c);
-                    if ((c >= 65 && c <= 90) || c == 32)
-                        isAllChar = true;
-                    else
-                    {
-                        isAllChar = false;
-                        break;
-                    }
-                }
-            return txtSname.Text.Contains(" ") && isAllChar;
-        }
-        bool FatherNameCheck()
-        {
-            bool isAllChar = true;
-            if (txtFName.Text.Length > 0)
-                foreach (char c in txtFName.Text)
-                {
-                    int p = c;
-                    Console.Write(c);
-                    if ((c >= 65 && c <= 90) || c == 32)
-                        isAllChar = true;
-                    else
-                    {
-                        isAllChar = false;
-                        break;
-                    }
-                }
-            return txtFName.Text.Contains(" ") && isAllChar;
-        }
-        bool AddressCheck()
-        {
-            return txtAdd.Text.Contains(" ");
-        }
-        bool ContactCheck()
-        {
-            bool isAllChar = true;
-            if (txtCon.Text.Length > 0)
-                foreach (char c in txtCon.Text)
-                {
-                    int p = c;
-                    Console.Write(c);
-                    if ((c >= 48 && c <= 57))
-                        isAllChar = true;
-                    else
-                    {
-                        isAllChar = false;
-                        break;
-                    }
-                }
-            return txtCon.Text.Length == 10 && isAllChar;
-        }
+        bool NameCheck() => StudentInfoVerification.IsStudentNameValid(txtSname.Text);
 
+        bool FatherNameCheck() => StudentInfoVerification.IsGurdianNameValid(txtFName.Text);
 
+        bool AddressCheck() => StudentInfoVerification.IsAddressrValid(txtAdd.Text);
 
-        void FillWith()
+        bool ContactCheck() => StudentInfoVerification.IsContactNumberValid(txtCon.Text);
+
+        bool ClassCheck() => StudentInfoVerification.IsClassIDValid(txtClass.Text);
+
+        void PopulateErrorActionList()
         {
-            DataEntryErrorInfoClass NameError = new DataEntryErrorInfoClass("Student name must not contain Space or any speacial chracter, use all capital letters", NameCheck);
-            DataEntryErrorInfoClass FatherNameError = new DataEntryErrorInfoClass("Father name must no have space or any Speacial, use all capital lettes", FatherNameCheck);
-            DataEntryErrorInfoClass AddressError = new DataEntryErrorInfoClass("Address should be valid", AddressCheck);
-            DataEntryErrorInfoClass ContactNumberError = new DataEntryErrorInfoClass("Contatct must be 10 digits, no chracter is allowed", ContactCheck);
+            DataEntryErrorInfoClass NameError =
+                new DataEntryErrorInfoClass("Student name must have atleast one letter preceded by a Space\nUse all capital letters", NameCheck);
+            DataEntryErrorInfoClass FatherNameError =
+                new DataEntryErrorInfoClass("Guardian name name must have at least one letter preceded by Space\nUse all capital letters", FatherNameCheck);
+            DataEntryErrorInfoClass AddressError =
+                new DataEntryErrorInfoClass("Address should be valid", AddressCheck);
+            DataEntryErrorInfoClass ContactNumberError =
+                new DataEntryErrorInfoClass("Contatct must be 10 digits.\nChracters are't allowed", ContactCheck);
+            DataEntryErrorInfoClass ClassIDError =
+                new DataEntryErrorInfoClass("Class format must macth Pre-defined structure\n(CODE[A-Z])(BATCH[01-99])(YEAR)", ClassCheck);
             dts.Add(NameError);
             dts.Add(FatherNameError);
             dts.Add(AddressError);
             dts.Add(ContactNumberError);
+            dts.Add(ClassIDError);
         }
 
     }
