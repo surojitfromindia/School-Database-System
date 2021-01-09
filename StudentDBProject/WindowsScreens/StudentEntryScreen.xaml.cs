@@ -19,7 +19,11 @@ namespace StudentDBProject.WindowsScreens
         public StudentEntryScreen()
         {
             InitializeComponent();
+            //Set Theme
             Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
+            btnNewForm.Foreground = new SolidColorBrush( ThemeColor.currentFontColor);
+            btnTra.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
+            btnUpdate.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
             //Set ProgressIndicator's properties
             PopulateErrorActionList();
             PI.ErrorDetailsAndAction = dts;
@@ -43,6 +47,7 @@ namespace StudentDBProject.WindowsScreens
             if (privateStudent != null)
             {
                 InitializeComponent();
+                btnUpdate.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
                 Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
                 int? roll;
                 (txtId.Text, txtSname.Text, txtFName.Text, txtAdd.Text,

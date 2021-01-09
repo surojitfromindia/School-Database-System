@@ -21,22 +21,28 @@ namespace StudentDBProject.WindowsScreens
     /// </summary>
     public partial class HomeScreen : Window
     {
+        private int MDKC=0;
         public event EventHandler onThisClose;
         private object curTab;
-        private Color onHoverAndSelectedColor = ThemeColor.currentAcColor;
-
+        private AdminSettings adS;
         public HomeScreen()
         {
             InitializeComponent();
-            Foreground =new SolidColorBrush(ThemeColor.currentAcColor);
-            Background = new SolidColorBrush(ThemeColor.currentBackgroundColor);
         }
 
         public HomeScreen(string usr)
         {
             InitializeComponent();
-            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
+
+            accHandler.Background = new SolidColorBrush(ThemeColor.currentAcColor);
+            Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
             Background = new SolidColorBrush(ThemeColor.currentBackgroundColor);
+            foreach (UIElement t in sPan.Children)
+            {
+                TextBlock tt = (TextBlock)t;
+                tt.Background = new SolidColorBrush(Colors.Transparent);
+                tt.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
+            }
             txtUserName.Text = "Hola "+ConnectionClass.Utype+", "+usr+"!";
             Closed += HomeScreen_Closed;
             ArmTabs();
@@ -74,10 +80,10 @@ namespace StudentDBProject.WindowsScreens
             {
                 TextBlock tt = (TextBlock)t;
                 tt.Background = new SolidColorBrush(Colors.Transparent);
-                tt.Foreground = new SolidColorBrush(onHoverAndSelectedColor);
+                tt.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             }
-            ((TextBlock)sender).Background = new SolidColorBrush(onHoverAndSelectedColor);
-            ((TextBlock)sender).Foreground = new SolidColorBrush(Colors.White);
+            ((TextBlock)sender).Background = new SolidColorBrush(ThemeColor.currentAcColor);
+            ((TextBlock)sender).Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
             remainSelected();
         }
 
@@ -91,6 +97,7 @@ namespace StudentDBProject.WindowsScreens
         {
             cleanSelection();
             string name = tName.Name;
+            MDKC = int.Parse(name.Substring(1));
             curTab = tName;
             remainSelected();
             switch (name)
@@ -102,21 +109,22 @@ namespace StudentDBProject.WindowsScreens
                 case "t5": ccPre.Content = new SearchWindow(); break;
                 case "t6":
                     {
-                        AdminSettings adS = new AdminSettings();
+                        if (adS == null)
+                            adS = new AdminSettings();
                         adS.KD += AdS_KD;
                         ccPre.Content = adS;
                         break;
                     }
                 case "t7": ccPre.Content = new WelcomeHelpScreen(); break;
-                case "t8": this.Close(); break;
+                case "t8": Close(); break;
             }
         }
 
         private void AdS_KD(object sender, MouseEventArgs e)
         {
-            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
+            Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
+            accHandler.Background = new SolidColorBrush(ThemeColor.currentAcColor);
             Background = new SolidColorBrush(ThemeColor.currentBackgroundColor);
-            onHoverAndSelectedColor = ThemeColor.currentAcColor;
             cleanSelection();
             remainSelected();
         }
@@ -126,18 +134,41 @@ namespace StudentDBProject.WindowsScreens
             {
                 TextBlock tt = (TextBlock)t;
                 tt.Background = new SolidColorBrush(Colors.Transparent);
-                tt.Foreground = new SolidColorBrush(onHoverAndSelectedColor);
+                tt.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             }
         }
         private void remainSelected() {
             if (curTab != null)
             {
-                ((TextBlock)curTab).Background = new SolidColorBrush(onHoverAndSelectedColor);
-                ((TextBlock)curTab).Foreground = new SolidColorBrush(Colors.White);
+                ((TextBlock)curTab).Background = new SolidColorBrush(ThemeColor.currentAcColor);
+                ((TextBlock)curTab).Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
             }
         }
 
-        
-
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch(e.Key)
+            {
+                case Key.D1: OnMouseDown(t1); break;
+                case Key.D2: OnMouseDown(t2); break;
+                case Key.D3: OnMouseDown(t3); break;
+                case Key.D4: OnMouseDown(t4); break;
+                case Key.D5: OnMouseDown(t5); break;
+                case Key.D6: OnMouseDown(t6); break;
+                case Key.D7: OnMouseDown(t7); break;
+                case Key.D0: OnMouseDown(t8); break;
+            }
+            if(e.Key == Key.Down)
+            {
+                MDKC++;
+                string oName = "t" + MDKC;
+                if (MDKC <= 7)
+                {
+                    OnMouseDown((TextBlock)FindName(oName));
+                    if ( MDKC == 7 )
+                        MDKC = 0 ;
+                }
+            }
+        }
     }
 }

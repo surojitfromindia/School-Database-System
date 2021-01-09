@@ -43,7 +43,7 @@ namespace StudentDBProject
             {
                 g.Show();
                 Visibility = Visibility.Hidden;
-                iU.Text = ""; iP.Password = "";
+                //iU.Text = ""; iP.Password = "";
             }
         }
 
