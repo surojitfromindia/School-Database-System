@@ -27,13 +27,13 @@ namespace StudentDBProject.WindowsScreens
             b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
         }
 
-        public BookPerIdScreen(string sid)
+        public  BookPerIdScreen(string sid)
         {
-            InitializeComponent();
-            b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
             List<Library> lbs = Library.FindAllBooks(sid);
             if (lbs.Count > 0)
             {
+                InitializeComponent();
+                b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
                 foreach (var ite in lbs)
                 {
                     BookRow bRow = new BookRow();

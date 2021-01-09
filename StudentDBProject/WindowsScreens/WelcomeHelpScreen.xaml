@@ -5,14 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
              mc:Ignorable="d" 
-             d:DesignHeight="530" d:DesignWidth="800"  FontSize="12">
+             d:DesignHeight="530" d:DesignWidth="800"  FontSize="12" Foreground="#FF898989">
     <StackPanel>
         <Label Padding="0,5,5,0" Content="School  Box 1.20" FontSize="25" Foreground="{Binding Foreground, ElementName=userControl}" Margin="10,10,10,0" FontFamily="Montserrat SemiBold"/>
         <Label Padding="0,5,5,5" Content="copyright 2029 - 2020" FontSize="15" Foreground="{Binding Foreground, ElementName=userControl}" Margin="10,0,10,0" FontFamily="Montserrat Medium"/>
         <TextBlock TextWrapping="Wrap" Text="Welcome to School Management 1.0. This soulution is equiped with powerfull database storing system. with help of GUI administer can entry, update, delete data. Seach with mutliple fillter, is a feature very helpfull. database secured with uncompronmisable user verification system. Admin is given the full pontential as well as feature and usage allowance." Width="613" HorizontalAlignment="Left" Margin="10,10,0,10" Foreground="#FFD893CF" FontSize="13" FontFamily="Montserrat"/>
         <TextBlock TextWrapping="Wrap" Text="Welcome to School Management 1.0. This soulution is equiped with powerfull database storing system. with help of GUI administer can entry, update, delete data. Seach with mutliple fillter, is a feature very helpfull. database secured with uncompronmisable user verification system. Admin is given the full pontential as well as feature and usage allowance." Width="531" HorizontalAlignment="Left" Margin="10,10,0,10" Foreground="#FFD893CF" FontSize="11" FontFamily="Montserrat Medium" FontWeight="Bold"/>
         <Label Padding="0,5,5,5" Content="List Of Changes" FontSize="12" Foreground="{Binding Foreground, ElementName=userControl}" Margin="10,0,0,0"/>
-        <ListBox Width="710" Margin="10,0,0,0" HorizontalAlignment="Left" Height="139" Foreground="{Binding Foreground, ElementName=userControl}" BorderBrush="{Binding Foreground, ElementName=userControl}" Background="{x:Null}" >
+        <ListBox Width="710" Margin="10,0,0,0" HorizontalAlignment="Left" Height="139" Foreground="{Binding Foreground, ElementName=userControl}"  Background="{x:Null}" >
             <ListBoxItem>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Padding="1" Text="Product Launch"  Width="600" />

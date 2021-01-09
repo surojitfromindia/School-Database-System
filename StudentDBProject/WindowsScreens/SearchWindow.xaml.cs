@@ -13,10 +13,17 @@ namespace StudentDBProject.WindowsScreens
     {
         int preIndex = 1;
 
+        
+
+
         public SearchWindow()
         {
             InitializeComponent();
-            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
+            Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
+            header.Background = new SolidColorBrush(ThemeColor.currentAcColor);
+            btnDeleteRecord.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
+            btnUpdateRcord.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
+            btnSearch.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             if (ConnectionClass.Utype != "Admin")
             {
                 btnDeleteRecord.Visibility = Visibility.Collapsed;

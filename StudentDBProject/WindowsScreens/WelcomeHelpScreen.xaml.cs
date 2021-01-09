@@ -26,7 +26,7 @@ namespace StudentDBProject.WindowsScreens
         public WelcomeHelpScreen()
         {
             InitializeComponent();
-            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
+            //Foreground = new SolidColorBrush(Colors.DarkGray);
             DescriptionAbout();
         }
 
@@ -41,7 +41,7 @@ namespace StudentDBProject.WindowsScreens
                 Label lb = new Label();
                 lb.Content = optionText;
                 lb.Padding = new Thickness(1);
-                lb.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
+                lb.Foreground =this.Foreground;
                 listHelpOpt.Items.Add(lb);
             }
         }

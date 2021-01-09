@@ -7,14 +7,20 @@ using System.Threading.Tasks;
 
 namespace StudentDBProject.Models
 {
-    class Bus
+    public class Bus
     {
-        public string StudentID;
-        public string BusId;
-        public int Installment;
-        public string Report;
-        public DateTime PaymentDate;
-        public double FineAmount;
+        public string StudentID { get; private set; }
+        public string BusId { get; private set; }
+        public int Installment { get; private set; }
+        public string Report { get; private set; }
+        public DateTime PaymentDate { get; private set; }
+        public double FineAmount { get; private set; }
+
+
+        public Bus()
+        {
+        }
+
 
         //For Record Purpose
         public Bus(string studentId, string bid, int install,
@@ -28,15 +34,15 @@ namespace StudentDBProject.Models
             Report = report;
         }
 
-        public void Deconstruct(out string studentId, out string bid, out int install,
+        public void Deconstruct(out string studentId, out string busId, out int install,
            out DateTime pDate, out double fine, out string report)
         {
             studentId = StudentID;
-            bid = BusId;
-            install = Installment ;
+            busId = BusId;
+            install = Installment;
             pDate = PaymentDate;
             fine = FineAmount;
-            report= Report ;
+            report = Report;
         }
 
         public bool Create()
@@ -61,8 +67,7 @@ namespace StudentDBProject.Models
             OleDbDataReader rd = cmd.ExecuteReader();
             while (rd.Read())
             {
-                bs = new Bus(rd.GetString(0), rd.GetString(1), rd.GetInt32(2),
-                    rd.GetDateTime(3), rd.GetDouble(4), rd.GetString(5));
+                bs = new Bus(rd.GetString(0), rd.GetString(1), rd.GetInt32(2), rd.GetDateTime(3), rd.GetDouble(4), rd.GetString(5));
             }
             rd.Close();
             return bs;

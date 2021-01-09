@@ -25,10 +25,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Ellipse Grid.Column="0" Name="Fire" Fill="#FFC97A2A" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" />
-            <Ellipse Grid.Column="1" Name="Mint"  Fill="#FF05AA75" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center"   />
-            <Ellipse Grid.Column="2" Name="CoolBlue"  Fill="#FF2F93F7" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center"   />
-            <Ellipse Grid.Column="3" Name="White"  Fill="#FFC1C1C1" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center"   />
+            <Ellipse Grid.Column="0" Name="Fire" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" Fill="#FFC99898" />
+            <Ellipse Grid.Column="1" Name="Mint"   HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" Fill="#FFC99898"   />
+            <Ellipse Grid.Column="2" Name="CoolBlue"   HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" Fill="#FFC99898"   />
+            <Ellipse Grid.Column="3" Name="White"   HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" Fill="#FFC99898"   />
         </Grid>
         <TextBlock Grid.Row="0" Grid.Column="2" Text="Background" FontSize="13" Margin="5,0,0,0"/>
         <Grid Grid.Row="1" Grid.Column="2">
@@ -38,8 +38,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Ellipse Grid.Column="0" Name="Dark" Fill="#FF424242" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" />
-            <Ellipse Grid.Column="1" Name="Light"  Fill="#FFCDCFCE" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center"   />
+            <Ellipse Grid.Column="0" Name="Dark"  HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" Fill="#FFC99898" />
+            <Ellipse Grid.Column="1" Name="Light"  HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" Fill="#FFC99898"   />
         </Grid>
     </Grid>
 </UserControl>

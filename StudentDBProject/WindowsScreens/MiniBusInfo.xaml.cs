@@ -23,7 +23,6 @@ namespace StudentDBProject.WindowsScreens
 
     public partial class MiniBusInfo : UserControl
     {
-        private string id;
         public MiniBusInfo()
         {
             InitializeComponent();
@@ -32,21 +31,13 @@ namespace StudentDBProject.WindowsScreens
 
         public MiniBusInfo(string id)
         {
-            InitializeComponent();
-            b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
-            this.id = id;
-            LoadInfo();
-           
-        }
-
-        private void LoadInfo()
-        {
             Bus b = Bus.FindBusI(id);
             if (b != null)
             {
+                InitializeComponent();
+                b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
                 (_, lblBusID.Content, lblAmount.Content,
-                      lblReport.Content, lblPDate.Content, lblFine.Content) = b;
-
+                          lblReport.Content, lblPDate.Content, lblFine.Content) = b;
             }
         }
     }

@@ -29,11 +29,11 @@ namespace StudentDBProject.WindowsScreens
 
         public InstallmentPerId(string sid)
         {
-            InitializeComponent();
-            b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
             List<Installment> lbs = Installment.FindAllInstallment(sid);
             if (lbs.Count > 0)
             {
+                InitializeComponent();
+                b1.Background = new SolidColorBrush(ThemeColor.currentAcColor);
                 foreach (var ite in lbs)
                 {
                     InstallmentRow IRow = new InstallmentRow();

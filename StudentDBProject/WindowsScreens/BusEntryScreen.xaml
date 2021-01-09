@@ -10,49 +10,52 @@
         <Label Padding="0,5,5,5" Content="Bus Service Installment Payment" FontSize="25"  Margin="10" Foreground="{Binding Foreground, ElementName=userControl}" />
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" MaxWidth="250" MinWidth="150"/>
+                <ColumnDefinition Width="*" MaxWidth="250" MinWidth="150"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Margin="10">
                 <StackPanel Margin="0,5,0,0">
                     <TextBlock Text="Student ID" Margin="0,0,0,2"/>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="txtSid" Height="30" Width="170"  HorizontalAlignment="Left" Padding="5" TextChanged="txtSid_TextChanged"/>
-                    </StackPanel>
+                   
+                        <TextBox x:Name="txtSid" Height="30"  Padding="5" TextChanged="txtSid_TextChanged"/>
+
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
                     <TextBlock Text="Bus Card Number" Margin="0,0,0,2"/>
-                    <TextBox x:Name="txtBId" Height="30" Width="230" HorizontalAlignment="Left" Padding="5"/>
+                    <TextBox x:Name="txtBId" Height="30"  Padding="5"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
                     <TextBlock Text="Installment Paid" Margin="0,0,0,2"/>
-                    <TextBox x:Name="txtInst" Text="0"  Height="30" Width="230" HorizontalAlignment="Left" Padding="5" />
+                    <TextBox x:Name="txtInst" Text="0"  Height="30"  Padding="5" />
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
                     <TextBlock Text="Report" Margin="0,0,0,2"/>
-                    <TextBox x:Name="txtRp" Text="Paid" Height="30" Width="230" HorizontalAlignment="Left" Padding="5"/>
+                    <TextBox x:Name="txtRp" Text="Paid" Height="30"  Padding="5"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="10">
                 <StackPanel Margin="0,5,0,0">
                     <TextBlock Text="Payment Date" Margin="0,0,0,2"/>
-                    <TextBox x:Name="txtPayDate" Height="30" Width="170" HorizontalAlignment="Left" Padding="5"/>
+                    <TextBox x:Name="txtPayDate" Height="30"  Padding="5"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">
                     <TextBlock Text="FIne(Rs.)" Margin="0,0,0,2"/>
                     <CheckBox x:Name="chkIsFineApplicable" Checked="chkIsFineApplicable_Checked" Unchecked="chkIsFineApplicable_Unchecked" />
-                    <TextBox x:Name="txtFine" Height="30" Text="0.0" Width="170"  HorizontalAlignment="Left" Padding="5" />
+                    <TextBox x:Name="txtFine" Height="30" Text="0.0"  Padding="5" />
                 </StackPanel>
 
                 <StackPanel Margin="0,5,0,0">
                     <TextBlock Text="Status" Margin="0,0,0,2"/>
                     <TextBlock Width="210" Height="30" Text="Waiting..." FontSize="15" HorizontalAlignment="Left"/>
                 </StackPanel>
-                <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
-                    <Button x:Name="btnSave" HorizontalAlignment="Left" Width="120" Height="30" Content="Transact" BorderBrush="{x:Null}" Background="{Binding Foreground, ElementName=userControl}" Foreground="White" Click="btnSave_Click" />
-                    <Button x:Name="btnClear" Margin="10,0,0,0" HorizontalAlignment="Left" Width="120" Height="30" Content="Clean Fields" BorderBrush="{x:Null}" Background="{Binding Foreground, ElementName=userControl}" Foreground="White" Click="btnClear_Click" />
-                </StackPanel>
-
+                <Grid Margin="0,20,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" x:Name="btnSave"   Height="30" Content="Transact" BorderBrush="{x:Null}" Background="{Binding Foreground, ElementName=userControl}" Foreground="White" Click="btnSave_Click" />
+                    <Button Grid.Column="1" x:Name="btnClear" Margin="10,0,0,0"  Height="30" Content="Clean Fields" BorderBrush="{x:Null}" Background="{Binding Foreground, ElementName=userControl}" Foreground="White" Click="btnClear_Click" />
+                </Grid>
             </StackPanel>
         </Grid>
     </StackPanel>

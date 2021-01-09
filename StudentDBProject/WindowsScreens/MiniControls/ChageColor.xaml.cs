@@ -32,14 +32,16 @@ namespace StudentDBProject.WindowsScreens.MiniControls
             InitializeComponent();
             Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
 
-            //Set Color Circle as default controls.
-            defaultBackAndAccentColor(Mint, Light);
-             
             //Store All Color Options Control Here
             //When user Select/Click one of the Color Cicle
             //Reset Unselected Option will go back to their unselected dimenssion (45 x 45)
             ColorAccentOptionEllipse = new Ellipse[] { Fire, Mint, CoolBlue, White };
             ColorBackgroundOptionEllipse = new Ellipse[] { Dark, Light };
+
+
+            //Set Color Circle as default controls.
+            setColorsInCircle();
+            defaultBackAndAccentColor(Mint, Light);
 
             //Color Circles Select/Click Events
             Fire.MouseDown += onAccentColorOptionClick;
@@ -150,6 +152,18 @@ namespace StudentDBProject.WindowsScreens.MiniControls
         {
             acColor.Width = 35; acColor.Height = 35;
             baColor.Width = 35; baColor.Height = 35;
+        }
+
+        private void setColorsInCircle()
+        {
+            var c = ColorAccentOptionEllipse.Concat(ColorBackgroundOptionEllipse).ToList();
+            c.ForEach(
+                (ce) =>
+                {
+                    ce.Fill = new SolidColorBrush(ThemeColor.GetColorFromString(ce.Name));
+                }
+            );
+
         }
     }
 }

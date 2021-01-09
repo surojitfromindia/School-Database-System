@@ -1,18 +1,11 @@
 ﻿using StudentDBProject.Models;
 using StudentDBProject.WindowsScreens.MiniControls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace StudentDBProject.WindowsScreens
 {
@@ -21,7 +14,7 @@ namespace StudentDBProject.WindowsScreens
     /// </summary>
     public partial class HomeScreen : Window
     {
-        private int MDKC=0;
+        private int MDKC = 0;
         public event EventHandler onThisClose;
         private object curTab;
         private AdminSettings adS;
@@ -43,7 +36,7 @@ namespace StudentDBProject.WindowsScreens
                 tt.Background = new SolidColorBrush(Colors.Transparent);
                 tt.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             }
-            txtUserName.Text = "Hola "+ConnectionClass.Utype+", "+usr+"!";
+            txtUserName.Text = "Hola " + ConnectionClass.Utype + ", " + usr + "!";
             Closed += HomeScreen_Closed;
             ArmTabs();
         }
@@ -55,11 +48,13 @@ namespace StudentDBProject.WindowsScreens
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-           DragMove();
+            DragMove();
         }
 
-        void ArmTabs() {
-            foreach (UIElement t in sPan.Children){
+        void ArmTabs()
+        {
+            foreach (UIElement t in sPan.Children)
+            {
                 TextBlock tt = (TextBlock)t;
                 t.MouseDown += T_MouseDown;
                 t.MouseEnter += T_MouseEnter;
@@ -75,7 +70,7 @@ namespace StudentDBProject.WindowsScreens
 
         private void T_MouseEnter(object sender, MouseEventArgs e)
         {
-            
+
             foreach (UIElement t in sPan.Children)
             {
                 TextBlock tt = (TextBlock)t;
@@ -116,7 +111,15 @@ namespace StudentDBProject.WindowsScreens
                         break;
                     }
                 case "t7": ccPre.Content = new WelcomeHelpScreen(); break;
-                case "t8": Close(); break;
+                case "t8":
+                    {
+                        InputWarringWindow iw = new InputWarringWindow("Exit Application", "This will close this application\nAre your sure ?", "Yes"
+                            );
+                        iw.ShowDialog();
+                        if (!iw.IsCanceldPress)
+                            Close();
+                        break;
+                    }
             }
         }
 
@@ -129,7 +132,8 @@ namespace StudentDBProject.WindowsScreens
             remainSelected();
         }
 
-        private void cleanSelection() {
+        private void cleanSelection()
+        {
             foreach (UIElement t in sPan.Children)
             {
                 TextBlock tt = (TextBlock)t;
@@ -137,7 +141,8 @@ namespace StudentDBProject.WindowsScreens
                 tt.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             }
         }
-        private void remainSelected() {
+        private void remainSelected()
+        {
             if (curTab != null)
             {
                 ((TextBlock)curTab).Background = new SolidColorBrush(ThemeColor.currentAcColor);
@@ -147,7 +152,7 @@ namespace StudentDBProject.WindowsScreens
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            switch(e.Key)
+            switch (e.Key)
             {
                 case Key.D1: OnMouseDown(t1); break;
                 case Key.D2: OnMouseDown(t2); break;
@@ -157,16 +162,24 @@ namespace StudentDBProject.WindowsScreens
                 case Key.D6: OnMouseDown(t6); break;
                 case Key.D7: OnMouseDown(t7); break;
                 case Key.D0: OnMouseDown(t8); break;
+                case Key.OemTilde:
+                    {
+                        InputWarringWindow i = new InputWarringWindow(
+                            "Search", new SearchStudentMiniControl(),
+                            cancleButtonText: "Close", isActionButtonHiden: true);
+                        i.ShowDialog();
+                        break;
+                    }
             }
-            if(e.Key == Key.Down)
+            if (e.Key == Key.Down)
             {
                 MDKC++;
                 string oName = "t" + MDKC;
                 if (MDKC <= 7)
                 {
                     OnMouseDown((TextBlock)FindName(oName));
-                    if ( MDKC == 7 )
-                        MDKC = 0 ;
+                    if (MDKC == 7)
+                        MDKC = 0;
                 }
             }
         }

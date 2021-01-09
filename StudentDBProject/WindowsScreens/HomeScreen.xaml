@@ -5,16 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:windowsscreens="clr-namespace:StudentDBProject.WindowsScreens"
         mc:Ignorable="d"
-        Title="HomeScreen" Height="667" Width="1014.5" 
-        MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterScreen"  
-        ResizeMode="CanResizeWithGrip"  BorderThickness="1" BorderBrush="#FF878787" WindowStyle="None" AllowsTransparency="True" KeyDown="Window_KeyDown">
+        Title="HomeScreen" Height="667" Width="917" 
+         WindowStartupLocation="CenterScreen"  
+        ResizeMode="CanResizeWithGrip"  BorderThickness="1" BorderBrush="#FF878787" WindowStyle="None"
+        AllowsTransparency="True" KeyDown="Window_KeyDown">
     
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Name="accHandler">
+        <StackPanel Name="accHandler" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="#FF00C585">
             <StackPanel Margin="15">
                 <TextBlock FontSize="18"  Text="Welcome"/>
                 <TextBlock x:Name="txtUserName" FontSize="26" >
@@ -38,13 +39,13 @@
                 <TextBlock x:Name="t8" Padding="15,10,10,10" TextWrapping="Wrap"  Text="Exit (D0)" FontWeight="Bold"/>
 
             </StackPanel>
-            <ScrollViewer Margin="10,0,5,0" Grid.Column="1" VerticalScrollBarVisibility="Hidden">
-                <ContentPresenter x:Name="ccPre" Margin="10">
+            <Grid VerticalAlignment="Top" Margin="10" Grid.Column="1">
+                <ContentPresenter x:Name="ccPre" >
                     <ContentPresenter.Content>
-                        <windowsscreens:WelcomeHelpScreen x:Name="wC" Foreground="{Binding Background, ElementName=accHandler}" />
+                        <windowsscreens:WelcomeHelpScreen/>
                     </ContentPresenter.Content>
                 </ContentPresenter>
-            </ScrollViewer>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

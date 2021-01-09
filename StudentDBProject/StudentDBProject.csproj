@@ -63,6 +63,7 @@
     <Compile Include="Models\Bus.cs" />
     <Compile Include="Models\Installment.cs" />
     <Compile Include="Models\Library.cs" />
+    <Compile Include="Models\SearchModels\SearchModel.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\ThemeColor.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -105,6 +106,12 @@
     </Compile>
     <Compile Include="WindowsScreens\MiniControls\ChageColor.xaml.cs">
       <DependentUpon>ChageColor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsScreens\MiniControls\InputWarringWindow.xaml.cs">
+      <DependentUpon>InputWarringWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsScreens\MiniControls\SearchStudentMiniControl.xaml.cs">
+      <DependentUpon>SearchStudentMiniControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowsScreens\SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
@@ -178,6 +185,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WindowsScreens\MiniControls\InputWarringWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowsScreens\MiniControls\SearchStudentMiniControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowsScreens\SearchWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -226,5 +241,6 @@
       <Name>ErrorInfoWindow</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
