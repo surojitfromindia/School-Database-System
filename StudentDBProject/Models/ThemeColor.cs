@@ -11,8 +11,8 @@ namespace StudentDBProject.Models
     {
 
         public static Color currentAcColor = ChangeAccentColor(ColorCode.Mint);
-        public static Color currentFontColor = ChangeFontColor(ColorCode.White);
-        public static Color currentBackgroundColor = ChangeBackgroundColor(ColorCode.Dark); //Only: Light, Dark
+        public static Color currentFontColor = ChangeFontColor(ColorCode.Light);
+        public static Color currentBackgroundColor = ChangeBackgroundColor(ColorCode.Light); //Only: Light, Dark
 
 
         public static Color ChangeAccentColor(ColorCode c)

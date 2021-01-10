@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,7 +49,9 @@ namespace StudentDBProject.Models
 
         public static void ConnectToDB()
         {
-            publicConnection = new OleDbConnection("provider=Microsoft.Jet.oledb.4.0; data source=school.mdb");
+            string dbPath ="..\\..\\Resources\\Database\\school.mdb";
+            Console.WriteLine(dbPath);
+            publicConnection = new OleDbConnection($"provider=Microsoft.Jet.oledb.4.0; data source= {dbPath}");
             publicConnection.Open();
         }
 
