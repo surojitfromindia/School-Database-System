@@ -36,9 +36,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\ExeIcon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\AppIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -101,8 +102,14 @@
     <Compile Include="WindowsScreens\LibraryEntryScreen.xaml.cs">
       <DependentUpon>LibraryEntryScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowsScreens\MicroControls\StudentSeatingVisual.xaml.cs">
+      <DependentUpon>StudentSeatingVisual.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowsScreens\MiniBusInfo.xaml.cs">
       <DependentUpon>MiniBusInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsScreens\MiniControls\BatchInfoMacro.xaml.cs">
+      <DependentUpon>BatchInfoMacro.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowsScreens\MiniControls\ChageColor.xaml.cs">
       <DependentUpon>ChageColor.xaml</DependentUpon>
@@ -177,7 +184,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WindowsScreens\MicroControls\StudentSeatingVisual.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowsScreens\MiniBusInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowsScreens\MiniControls\BatchInfoMacro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -223,6 +238,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -233,14 +249,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ExeIcon.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ErrorInfoWindow\ErrorInfoWindow.csproj">
       <Project>{0db6fc37-d82f-45fa-a0b3-ccb35f214793}</Project>
       <Name>ErrorInfoWindow</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\AppIcon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,61 +6,63 @@
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" >
-    <StackPanel>
-        <Label Padding="0,5,5,5" Content="Library Books Transaction Records" FontSize="25" Foreground="{Binding Foreground, ElementName=userControl}" Margin="10"/>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" Margin="10">
-                <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Student ID" Margin="0,0,0,2"/>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="txtSID" Height="30" Width="170"  HorizontalAlignment="Left" Padding="5" KeyDown="txtSID_KeyDown" TextChanged="txtSID_TextChanged"/>
-                        <Button x:Name="btnSearch" Margin="10,0,0,0" HorizontalAlignment="Left" Width="50" Height="30" Content="Look" BorderBrush="{x:Null}" Background="{Binding Foreground, ElementName=userControl}" Foreground="White" Click="btnSearch_Click" />
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <StackPanel>
+            <Label Padding="0,5,5,5" Content="Library Books Transaction Records" FontSize="25" Foreground="{Binding Foreground, ElementName=userControl}" Margin="10"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="10">
+                    <StackPanel Margin="0,5,0,0">
+                        <TextBlock Text="Student ID" Margin="0,0,0,2"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="txtSID" Height="30" Width="170"  HorizontalAlignment="Left" Padding="5" KeyDown="txtSID_KeyDown" TextChanged="txtSID_TextChanged"/>
+                            <Button x:Name="btnSearch" Margin="10,0,0,0" HorizontalAlignment="Left" Width="50" Height="30" Content="Look" BorderBrush="{x:Null}" Background="{Binding Foreground, ElementName=userControl}" Foreground="White" Click="btnSearch_Click" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Margin="0,5,0,0">
+                        <TextBlock Text="Book Name" Margin="0,0,0,2"/>
+                        <TextBox x:Name="txtBookName" Height="80" Width="230" HorizontalAlignment="Left" Padding="5"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,5,0,0">
+                        <TextBlock Text="Library Card Number" Margin="0,0,0,2"/>
+                        <TextBox x:Name="txtLBC" Height="30" Width="230" HorizontalAlignment="Left" Padding="5"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,5,0,0">
+                        <TextBlock Text="Report" Margin="0,0,0,2"/>
+                        <Label x:Name="lblRp" Height="30" Width="230" HorizontalAlignment="Left" Padding="0,5,5,5" Content="HOLD" Foreground="{Binding Foreground, ElementName=userControl}" FontSize="16"/>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Book Name" Margin="0,0,0,2"/>
-                    <TextBox x:Name="txtBookName" Height="80" Width="230" HorizontalAlignment="Left" Padding="5"/>
+                <StackPanel Grid.Column="1" Margin="10">
+                    <StackPanel Margin="0,5,0,0">
+                        <TextBlock Text="Issue Date" Margin="0,0,0,2"/>
+                        <TextBox x:Name="txtIdate" Height="30" Width="170" HorizontalAlignment="Left" Padding="5"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,5,0,0">
+                        <TextBlock Text="Return Date" Margin="0,0,0,2"/>
+                        <TextBox x:Name="txtrdate" Height="30" Width="170" HorizontalAlignment="Left" Padding="5"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,5,0,0">
+                        <TextBlock Text="Fine (Rs.10.25 / Day)" Margin="0,0,0,2"/>
+                        <TextBox x:Name="txtFine" Height="30" Width="170" Text="0" HorizontalAlignment="Left" Padding="5" />
+                    </StackPanel>
+                    <StackPanel Margin="0,5,0,0">
+                        <TextBlock Text="Status" Margin="0,0,0,2"/>
+                        <TextBlock x:Name="lblRest" Width="210" Height="30" Text="Waiting..." FontSize="15" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+                        <Button x:Name="btnSave" HorizontalAlignment="Left" Width="120" Height="30" Content="Transact" BorderBrush="{x:Null}" Background="{Binding Foreground, ElementName=userControl}" Foreground="White" Click="btnSave_Click" />
+                        <Button x:Name="btnClear" Margin="10,0,0,0" HorizontalAlignment="Left" Width="120" Height="30" Content="Clean Fields" Background="{Binding Foreground, ElementName=userControl}" BorderBrush="{x:Null}" Foreground="White" Click="btnClear_Click" />
+                    </StackPanel>
+                    <StackPanel Margin="0,10,0,0">
+                        <Button x:Name="btnUpdate"  HorizontalAlignment="Left" Width="120" Height="30" Content="Book Return" BorderBrush="{x:Null}" Background="{Binding Foreground, ElementName=userControl}" Foreground="White" Click="btnUpdate_Click" />
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Library Card Number" Margin="0,0,0,2"/>
-                    <TextBox x:Name="txtLBC" Height="30" Width="230" HorizontalAlignment="Left" Padding="5"/>
-                </StackPanel>
-                <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Report" Margin="0,0,0,2"/>
-                    <Label x:Name="lblRp" Height="30" Width="230" HorizontalAlignment="Left" Padding="0,5,5,5" Content="HOLD" Foreground="{Binding Foreground, ElementName=userControl}" FontSize="16"/>
-                </StackPanel>
+            </Grid>
+            <StackPanel Margin="0,10,0,10" Name="listPane"  HorizontalAlignment="Left" >
             </StackPanel>
-            <StackPanel Grid.Column="1" Margin="10">
-                <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Issue Date" Margin="0,0,0,2"/>
-                    <TextBox x:Name="txtIdate" Height="30" Width="170" HorizontalAlignment="Left" Padding="5"/>
-                </StackPanel>
-                <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Return Date" Margin="0,0,0,2"/>
-                    <TextBox x:Name="txtrdate" Height="30" Width="170" HorizontalAlignment="Left" Padding="5"/>
-                </StackPanel>
-                <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Fine (Rs.10.25 / Day)" Margin="0,0,0,2"/>
-                    <TextBox x:Name="txtFine" Height="30" Width="170" Text="0" HorizontalAlignment="Left" Padding="5" />
-                </StackPanel>
-                <StackPanel Margin="0,5,0,0">
-                    <TextBlock Text="Status" Margin="0,0,0,2"/>
-                    <TextBlock x:Name="lblRest" Width="210" Height="30" Text="Waiting..." FontSize="15" HorizontalAlignment="Left"/>
-                </StackPanel>
-                <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
-                    <Button x:Name="btnSave" HorizontalAlignment="Left" Width="120" Height="30" Content="Transact" BorderBrush="{x:Null}" Background="{Binding Foreground, ElementName=userControl}" Foreground="White" Click="btnSave_Click" />
-                    <Button x:Name="btnClear" Margin="10,0,0,0" HorizontalAlignment="Left" Width="120" Height="30" Content="Clean Fields" Background="{Binding Foreground, ElementName=userControl}" BorderBrush="{x:Null}" Foreground="White" Click="btnClear_Click" />
-                </StackPanel>
-                <StackPanel Margin="0,10,0,0">
-                    <Button x:Name="btnUpdate"  HorizontalAlignment="Left" Width="120" Height="30" Content="Book Return" BorderBrush="{x:Null}" Background="{Binding Foreground, ElementName=userControl}" Foreground="White" Click="btnUpdate_Click" />
-                </StackPanel>
-            </StackPanel>
-        </Grid>
-        <StackPanel Margin="0,10,0,10" Name="listPane"  HorizontalAlignment="Left" >
         </StackPanel>
-    </StackPanel>
+    </ScrollViewer>
 </UserControl>

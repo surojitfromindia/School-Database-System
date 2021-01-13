@@ -10,7 +10,7 @@ namespace StudentDBProject.Models
     static class ThemeColor
     {
 
-        public static Color currentAcColor = ChangeAccentColor(ColorCode.Mint);
+        public static Color currentAcColor = ChangeAccentColor(ColorCode.CoolBlue);
         public static Color currentFontColor = ChangeFontColor(ColorCode.Light);
         public static Color currentBackgroundColor = ChangeBackgroundColor(ColorCode.Light); //Only: Light, Dark
 
@@ -40,7 +40,7 @@ namespace StudentDBProject.Models
             {
                 //Add Color Here.
                 case "Fire": p = (Color)ColorConverter.ConvertFromString("#FFC97A2A"); break;
-                case "Mint": p = (Color)ColorConverter.ConvertFromString("#FF00C585"); break;
+                case "Mint": p = (Color)ColorConverter.ConvertFromString("#FF00A871"); break;
                 case "CoolBlue": p = (Color)ColorConverter.ConvertFromString("#FF2F93F7"); break;
                 case "White": p = (Color)ColorConverter.ConvertFromString("#FFFFFFFF"); break;
                 case "Dark": p = (Color)ColorConverter.ConvertFromString("#FF343434"); break;
@@ -56,7 +56,7 @@ namespace StudentDBProject.Models
             {
                 //Add Color Here.
                 case ColorCode.Fire: p = (Color)ColorConverter.ConvertFromString("#FFC97A2A"); break;
-                case ColorCode.Mint: p = (Color)ColorConverter.ConvertFromString("#FF00CB89"); break;
+                case ColorCode.Mint: p = (Color)ColorConverter.ConvertFromString("#FF00A871"); break;
                 case ColorCode.CoolBlue: p = (Color)ColorConverter.ConvertFromString("#FF2F93F7"); break;
                 case ColorCode.White: p = (Color)ColorConverter.ConvertFromString("#FFFFFFFF"); break;
                 case ColorCode.Dark: p = (Color)ColorConverter.ConvertFromString("#FF343434"); break;

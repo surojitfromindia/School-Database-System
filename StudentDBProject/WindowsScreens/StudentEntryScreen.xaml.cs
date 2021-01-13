@@ -1,5 +1,6 @@
 ﻿using ErrorInfoWindow;
 using StudentDBProject.Models;
+using StudentDBProject.WindowsScreens.MiniControls;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,11 +20,12 @@ namespace StudentDBProject.WindowsScreens
         public StudentEntryScreen()
         {
             InitializeComponent();
+            mmMini.Content = new BatchInfoMacro()
+            {
+                Padding = new Thickness(10)
+            };
             //Set Theme
-            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
-            btnNewForm.Foreground = new SolidColorBrush( ThemeColor.currentFontColor);
-            btnTra.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
-            btnUpdate.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
+            SetTheme();
             //Set ProgressIndicator's properties
             PopulateErrorActionList();
             PI.ErrorDetailsAndAction = dts;
@@ -38,7 +40,18 @@ namespace StudentDBProject.WindowsScreens
             txtAdd.TextChanged += onTextChange;
             txtAdhar.TextChanged += TxtAdhar_TextChanged;
         }
-        
+
+        private void SetTheme()
+        {
+            Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
+            btnNewForm.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
+            btnTra.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
+            btnUpdate.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
+            btnNewForm.Background = new SolidColorBrush(ThemeColor.currentAcColor);
+            btnTra.Background = new SolidColorBrush(ThemeColor.currentAcColor);
+            btnUpdate.Background = new SolidColorBrush(ThemeColor.currentAcColor);
+        }
+
         //This Constructor used in SearchWindow.cs
         //to show searched data only if matchs are found in database.
         public StudentEntryScreen(string searchID)
@@ -47,13 +60,13 @@ namespace StudentDBProject.WindowsScreens
             if (privateStudent != null)
             {
                 InitializeComponent();
-                btnUpdate.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
-                Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
+                SetTheme();
                 int? roll;
                 (txtId.Text, txtSname.Text, txtFName.Text, txtAdd.Text,
                     txtCon.Text, txtAdhar.Text, txtClass.Text, roll,
                     txtSec.Text, txtLB.Text, txtBus.Text) = privateStudent;
                 txtRoll.Text = roll.ToString();
+                
                 //New Form Entry , Transaction, Error Information Controls are disabled
                 // so, user can't Entry a new record 
                 //but able to update recordrs already exsists.
@@ -61,6 +74,7 @@ namespace StudentDBProject.WindowsScreens
                 btnNewForm.Visibility = Visibility.Collapsed;
                 lblStatus.Visibility = Visibility.Hidden;
                 PI.Visibility = Visibility.Collapsed;
+                
             }
         }
 
@@ -89,7 +103,11 @@ namespace StudentDBProject.WindowsScreens
 
         void GenerateIDBUSLIB()
         {
-            id = txtClass.Text + txtRoll.Text + txtSec.Text;
+
+            string _roll = txtRoll.Text;
+            if (txtRoll.Text.Length !=0 && int.Parse(txtRoll.Text) < 10)
+                _roll = "0" + int.Parse(txtRoll.Text);
+            id = txtClass.Text + _roll + txtSec.Text;
             busid = id + "B";
             libid = id + "L";
             txtId.Text = id; txtBus.Text = busid; txtLB.Text = libid;

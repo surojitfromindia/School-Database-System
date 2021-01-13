@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens"
              mc:Ignorable="d" 
              d:DesignHeight="450"  Width="500" MaxHeight="500" Margin="10" d:DesignWidth="550">
-    <Border CornerRadius="12" Name="b1">
+    <Border CornerRadius="6" Name="b1">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -37,7 +37,6 @@
             </Grid>
             <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Hidden" MaxHeight="200" Margin="0,2,0,28">
                 <StackPanel x:Name="lstPanel" Margin="15,10,0,0" HorizontalAlignment="Left">
-                    <local:BookRow/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>

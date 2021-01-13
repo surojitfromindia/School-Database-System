@@ -18,24 +18,25 @@ namespace StudentDBProject.WindowsScreens.MiniControls
     /// <summary>
     /// Interaction logic for InputWarringWindow.xaml
     /// </summary>
-    public partial class InputWarringWindow : Window
+    public partial class AlertDialogCus : Window
     {
         public event RoutedEventHandler onActionClick;
         public object ReturnObject;
 
         public bool IsCanceldPress { get; private set; }
-        public InputWarringWindow()
+        public AlertDialogCus()
         {
             InitializeComponent();
             SetTheme();
         }
 
-        public InputWarringWindow(string header, string subtext = "", string actionButtonText = "Ok", string cancleButtonText = "Cancel", bool isActionButtonHiden = false)
+        public AlertDialogCus(string header, string subtext = "", string actionButtonText = "Ok", string cancleButtonText = "Cancel", bool isActionButtonHiden = false)
         {
             InitializeComponent();
             SetTheme();
             aboutAction.Text = header;
             TextBlock ttSubtext = new TextBlock();
+            ttSubtext.TextWrapping = TextWrapping.Wrap;
             ttSubtext.Text = subtext;
             ccPre.Content = ttSubtext;
             btnAction.Content = actionButtonText;
@@ -44,7 +45,7 @@ namespace StudentDBProject.WindowsScreens.MiniControls
                 btnAction.Visibility = Visibility.Hidden;
         }
 
-        public InputWarringWindow(string header, Control miniControl, string actionButtonText = "Ok", string cancleButtonText = "Cancel", bool isActionButtonHiden = false)
+        public AlertDialogCus(string header, Control miniControl, string actionButtonText = "Ok", string cancleButtonText = "Cancel", bool isActionButtonHiden = false)
         {
             InitializeComponent();
             SetTheme();

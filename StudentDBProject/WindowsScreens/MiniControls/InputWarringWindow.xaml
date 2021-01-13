@@ -1,11 +1,11 @@
-﻿<Window x:Class="StudentDBProject.WindowsScreens.MiniControls.InputWarringWindow"
+﻿<Window x:Class="StudentDBProject.WindowsScreens.MiniControls.AlertDialogCus"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentDBProject.WindowsScreens.MiniControls"
         mc:Ignorable="d"
-        Title="InputWarringWindow" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="CanResizeWithGrip" Width="450" Height="320"
+        Title="InputWarringWindow" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="CanResizeWithGrip" Width="436.5" Height="140"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
         FontFamily="Montserrat SemiBold" BorderBrush="#FF494949" BorderThickness="1">
     <Grid>
@@ -21,8 +21,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" x:Name="btnAction" Margin="0,0,10,0" Height="30" Width="100"  Content="Exit" BorderBrush="{x:Null}" Click="BtnAction_Click"/>
-            <Button Grid.Column="1" x:Name="btnCancel" Margin="0,0,10,0" Height="30" Width="100" Content="Cancel" BorderBrush="{x:Null}" Click="BtnCancel_Click"/>
+            <Button IsDefault="False" Grid.Column="0" x:Name="btnAction" Margin="0,0,10,0" Height="30" Width="100"  Content="Exit" BorderBrush="{x:Null}" Click="BtnAction_Click"/>
+            <Button IsDefault="True" Grid.Column="1" x:Name="btnCancel" Margin="0,0,10,0" Height="30" Width="100" Content="Cancel" BorderBrush="{x:Null}" Click="BtnCancel_Click"/>
         </Grid>
     </Grid>
 </Window>

@@ -175,7 +175,7 @@ namespace StudentDBProject.Models
         public static List<Student> GetAllStudent()
         {
             List<Student> sl = new List<Student>();
-            string ss = "select * from Student";
+            string ss = "select * from Student order by RNo ";
             OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
             OleDbDataReader j = cmd.ExecuteReader();
             while (j.Read())
@@ -187,7 +187,25 @@ namespace StudentDBProject.Models
                     );
                 sl.Add(s);
             }
+            return sl;
+        }
 
+
+        public static List<Student> GetAllStudent(string batch)
+        {
+            List<Student> sl = new List<Student>();
+            string ss = $"select * from Student where Cla='{batch}' order by RNo ";
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
+            OleDbDataReader j = cmd.ExecuteReader();
+            while (j.Read())
+            {
+                Student s = new Student(
+                    j.GetString(0), j.GetString(1), j.GetString(2),
+                    j.GetString(3), j.GetString(4), j.GetString(5), j.GetString(6)
+                    , j.GetInt32(7), j.GetString(8), j.GetString(9), j.GetString(10)
+                    );
+                sl.Add(s);
+            }
             return sl;
         }
 

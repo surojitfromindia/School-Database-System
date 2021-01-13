@@ -1,4 +1,5 @@
 ﻿using StudentDBProject.Models;
+using StudentDBProject.WindowsScreens.MiniControls;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,25 +12,27 @@ namespace StudentDBProject.WindowsScreens
     /// </summary>
     public partial class SearchWindow : UserControl
     {
-        int preIndex = 1;
-
-        
-
+        private int preIndex = 1;
 
         public SearchWindow()
         {
             InitializeComponent();
+            SetTheme(); // Set theme for this control.
+            if (ConnectionClass.Utype != "Admin")
+                btnDeleteRecord.Visibility = Visibility.Collapsed; //hide delete record button if user is not admin.
+            LoadList(); // Load itemBox with student info.
+        }
+
+        private void SetTheme()
+        {
             Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
             header.Background = new SolidColorBrush(ThemeColor.currentAcColor);
+            lblNoOfStudents.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             btnDeleteRecord.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             btnUpdateRcord.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             btnSearch.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
-            if (ConnectionClass.Utype != "Admin")
-            {
-                btnDeleteRecord.Visibility = Visibility.Collapsed;
-            }//hide delete record button if user is not admin.
-            LoadList(); // Load itemBox with student info.
         }
+
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
@@ -38,12 +41,21 @@ namespace StudentDBProject.WindowsScreens
 
         private void btnDeleteRecord_Click(object sender, RoutedEventArgs e)
         {
-            bool isdeleted = Student.deleteRecord(txtIDNumber.Text);
-            if (isdeleted)
+            AlertDialogCus ExitDialog = new AlertDialogCus("Delete This Record.",
+                "Do you want to delete this record, this will permanently remove this record from database ?");
+            ExitDialog.ShowDialog();
+            bool isCancel = ExitDialog.IsCanceldPress;
+            if (!isCancel)
             {
-                MessageBox.Show("Record Deleted");
-                listStudent.Items.RemoveAt(preIndex + 1);
-                listStudent.SelectedIndex = (preIndex == -1) ? 0 : preIndex;
+                bool isdeleted = Student.deleteRecord(txtIDNumber.Text);
+                if (isdeleted)
+                {
+                    new AlertDialogCus ("Information.",
+                        "Record successfully removed from database!", cancleButtonText: "Ok", isActionButtonHiden: true)
+                        .ShowDialog();
+                    listStudent.Items.RemoveAt(preIndex + 1);
+                    listStudent.SelectedIndex = (preIndex == -1) ? 0 : preIndex;
+                }
             }
         }
 

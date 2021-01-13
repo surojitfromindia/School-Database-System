@@ -113,7 +113,7 @@ namespace StudentDBProject.WindowsScreens
                 case "t7": ccPre.Content = new WelcomeHelpScreen(); break;
                 case "t8":
                     {
-                        InputWarringWindow iw = new InputWarringWindow("Exit Application", "This will close this application\nAre your sure ?", "Yes"
+                        AlertDialogCus iw = new AlertDialogCus("Exit Application", "This will close this application\nAre your sure ?", "Yes"
                             );
                         iw.ShowDialog();
                         if (!iw.IsCanceldPress)
@@ -154,19 +154,16 @@ namespace StudentDBProject.WindowsScreens
         {
             switch (e.Key)
             {
-                case Key.D1: OnMouseDown(t1); break;
-                case Key.D2: OnMouseDown(t2); break;
-                case Key.D3: OnMouseDown(t3); break;
-                case Key.D4: OnMouseDown(t4); break;
-                case Key.D5: OnMouseDown(t5); break;
-                case Key.D6: OnMouseDown(t6); break;
-                case Key.D7: OnMouseDown(t7); break;
-                case Key.D0: OnMouseDown(t8); break;
                 case Key.OemTilde:
                     {
-                        InputWarringWindow i = new InputWarringWindow(
+                        AlertDialogCus i = new AlertDialogCus(
                             "Search", new SearchStudentMiniControl(),
-                            cancleButtonText: "Close", isActionButtonHiden: true);
+                            cancleButtonText: "Close", isActionButtonHiden: true)
+                        {
+                            Width = 450,
+                            Height = 250
+                        }
+                        ;
                         i.ShowDialog();
                         break;
                     }
