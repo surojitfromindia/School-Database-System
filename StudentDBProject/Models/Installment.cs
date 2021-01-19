@@ -27,7 +27,7 @@ namespace StudentDBProject.Models
         public bool Create()
         {
             string commandString = "insert into installment values(@sid, @inum ,@ins, @gst, @pdate, @fin, 'Paid')";
-            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", sid);
             cmd.Parameters.AddWithValue("@inum", isnumber);
             cmd.Parameters.AddWithValue("@ins", inst);
@@ -41,7 +41,7 @@ namespace StudentDBProject.Models
         public static int getLastInstallmentNumberOf(string id)
         {
             string commandString = "select max(inumber) from installment where sid = @sid";
-            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", id);
 
             object b = cmd.ExecuteScalar();
@@ -55,7 +55,7 @@ namespace StudentDBProject.Models
             Installment lastInstallment = null;
             string commandString = "select * from installment where sid = @sid and " +
                 "pDate =(select max(pDate) from installment where sid =@sid)";
-            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", sid);
             OleDbDataReader rd = cmd.ExecuteReader();
             if (rd.HasRows)
@@ -74,7 +74,7 @@ namespace StudentDBProject.Models
 
             List<Installment> sl = new List<Installment>();
             string ss = "select * from Installment where SId = @sid ";
-            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", studenID);
             OleDbDataReader rd = cmd.ExecuteReader();
             while (rd.Read())

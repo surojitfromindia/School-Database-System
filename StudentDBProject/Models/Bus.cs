@@ -48,7 +48,7 @@ namespace StudentDBProject.Models
         public bool Create()
         {
             string commandString = "insert into Bus values(@sid, @bid, @ins, @pdate, @fine, 'Paid')";
-            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", StudentID);
             cmd.Parameters.AddWithValue("@bid", StudentID + "B");
             cmd.Parameters.AddWithValue("@ins", Installment);
@@ -62,7 +62,7 @@ namespace StudentDBProject.Models
         {
             Bus bs = null;
             string ss = "select * from Bus where Sid = @sid ";
-            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", studenID);
             OleDbDataReader rd = cmd.ExecuteReader();
             while (rd.Read())

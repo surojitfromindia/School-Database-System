@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace StudentDBProject.Models
@@ -87,7 +88,7 @@ namespace StudentDBProject.Models
         {
             string ss = "insert into Student values(@uid, @uname, @ufaname, @uadd," +
                 " @uph, @uvid, @uclass, @uRoll, @usec, @ulib, @ubus)";
-            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@uid", studentId);
             cmd.Parameters.AddWithValue("@uname", studentName);
             cmd.Parameters.AddWithValue("@ufaname", FatherName);
@@ -108,7 +109,7 @@ namespace StudentDBProject.Models
 
             int p = 1;
             string ss = "select max(RNo) from Student where Cla = @clas";
-            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@clas", className);
             object j = cmd.ExecuteScalar();
             if (j != DBNull.Value)
@@ -121,22 +122,22 @@ namespace StudentDBProject.Models
         public static bool deleteRecord(string studentID)
         {
             string commandString = "delete from Student where SId = @uid";
-            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@uid", studentID);
             int i = cmd.ExecuteNonQuery();
 
             commandString = "delete from Bus where Sid = @sid;";
-            cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
+            cmd = new OleDbCommand(commandString, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", studentID);
             cmd.ExecuteNonQuery();
 
             commandString = "delete from installment where Sid = @sid;";
-            cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
+            cmd = new OleDbCommand(commandString, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", studentID);
             cmd.ExecuteNonQuery();
 
             commandString = "delete from Library where Sid = @sid;";
-            cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
+            cmd = new OleDbCommand(commandString, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", studentID);
             cmd.ExecuteNonQuery();
 
@@ -146,7 +147,7 @@ namespace StudentDBProject.Models
 
         public static bool update(Student newInfo)
         {
-            OleDbCommand cmd = new OleDbCommand("delete from Student where SId = @uid", ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand("delete from Student where SId = @uid", ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@uid", newInfo.studentId);
             int i = cmd.ExecuteNonQuery();
             bool i2 = newInfo.Create();
@@ -157,7 +158,7 @@ namespace StudentDBProject.Models
         {
             Student s = null;
             string ss = "select * from Student where SId = @sid";
-            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", studentID);
             OleDbDataReader j = cmd.ExecuteReader();
             while (j.Read())
@@ -176,7 +177,7 @@ namespace StudentDBProject.Models
         {
             List<Student> sl = new List<Student>();
             string ss = "select * from Student order by RNo ";
-            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.PublicConnection);
             OleDbDataReader j = cmd.ExecuteReader();
             while (j.Read())
             {
@@ -189,36 +190,68 @@ namespace StudentDBProject.Models
             }
             return sl;
         }
-
-
         public static List<Student> GetAllStudent(string batch)
         {
             List<Student> sl = new List<Student>();
             string ss = $"select * from Student where Cla='{batch}' order by RNo ";
-            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.PublicConnection);
             OleDbDataReader j = cmd.ExecuteReader();
             while (j.Read())
             {
                 Student s = new Student(
                     j.GetString(0), j.GetString(1), j.GetString(2),
-                    j.GetString(3), j.GetString(4), j.GetString(5), j.GetString(6)
-                    , j.GetInt32(7), j.GetString(8), j.GetString(9), j.GetString(10)
+                    j.GetString(3), j.GetString(4), j.GetString(5), j.GetString(6),
+                    j.GetInt32(7), j.GetString(8), j.GetString(9), j.GetString(10)
                     );
                 sl.Add(s);
             }
             return sl;
         }
-
         public static int GetNoOfStudents()
         {
             string ss = "select count(*) from Student";
-            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.PublicConnection);
             int i = (int)cmd.ExecuteScalar();
             return i;
         }
 
+        public static List<Student> applyFillter(string text, STUDENTFILLTER st)
+        {
+            var studentList = new List<Student>();
+            switch (st)
+            {
+                case STUDENTFILLTER.CLASS:
+                    {
+                        studentList = GetAllStudent().Where(t => (t.ClassName == text)).ToList();
+                        break;
+                    }
+                case STUDENTFILLTER.NAME:
+                    {
+                        studentList = GetAllStudent().Where(t => (t.studentName == text)).ToList();
+                        break;
+                    }
+                case STUDENTFILLTER.ROLL:
+                    {
+                        studentList = GetAllStudent().Where(t => (t.RollNumber.ToString() == text)).ToList();
+                        break;
+                    }
+                case STUDENTFILLTER.NONE:
+                    {
+                        studentList = GetAllStudent();
+                        break;
+                    }
+            }
+
+            return studentList;
+        }
 
     }
+    public enum STUDENTFILLTER
+    {
+        ROLL, NAME, CLASS, NONE
+    }
+
+
     public static class StudentInfoVerification
     {
         public static bool IsStudentNameValid(string studentName)
@@ -283,7 +316,10 @@ namespace StudentDBProject.Models
                 }
             return contactNumber.Length == 10 && isAllChar;
         }
-
+        public static bool IsAadharValid(string Aadhar)
+        {
+            return Regex.IsMatch(Aadhar, "^([0-9]{4}-){3}[0-9]{4}$");
+        }
         public static bool IsClassIDValid(string classID)
         {
             classID = classID.Trim();

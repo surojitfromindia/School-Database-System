@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:windowsscreens="clr-namespace:StudentDBProject.WindowsScreens"
         mc:Ignorable="d"
-        Title="HomeScreen" Height="594" Width="941" 
+        Title="HomeScreen" Height="643" Width="959" 
          WindowStartupLocation="CenterScreen"  
         ResizeMode="CanResizeWithGrip"  BorderThickness="1" BorderBrush="#FF878787" WindowStyle="None"
         AllowsTransparency="True" KeyDown="Window_KeyDown">
@@ -23,7 +23,7 @@
                 </TextBlock>
             </StackPanel>
         </StackPanel>
-        <Grid Grid.Row="1" Margin="0,0,10,10">
+        <Grid Grid.Row="1" Margin="0,0,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="160"/>
                 <ColumnDefinition Width="*"/>
@@ -39,10 +39,10 @@
                 <TextBlock x:Name="t8" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Exit" FontWeight="Bold"/>
 
             </StackPanel>
-            <Grid VerticalAlignment="Top" Margin="0" Grid.Column="1">
+            <Grid   Grid.Column="1" Margin="10,0,0,0">
                 <ContentPresenter x:Name="ccPre" >
                     <ContentPresenter.Content>
-                        <windowsscreens:WelcomeHelpScreen/>
+                        <windowsscreens:WelcomeHelpScreen />
                     </ContentPresenter.Content>
                 </ContentPresenter>
             </Grid>

@@ -120,6 +120,12 @@
     <Compile Include="WindowsScreens\MiniControls\SearchStudentMiniControl.xaml.cs">
       <DependentUpon>SearchStudentMiniControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowsScreens\SeachControls\StudentInfos\ManyStudentInfo.xaml.cs">
+      <DependentUpon>ManyStudentInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsScreens\SeachControls\StudentInfos\SingleStudentInfo.xaml.cs">
+      <DependentUpon>SingleStudentInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowsScreens\SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
     </Compile>
@@ -205,6 +211,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowsScreens\MiniControls\SearchStudentMiniControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowsScreens\SeachControls\StudentInfos\ManyStudentInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowsScreens\SeachControls\StudentInfos\SingleStudentInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

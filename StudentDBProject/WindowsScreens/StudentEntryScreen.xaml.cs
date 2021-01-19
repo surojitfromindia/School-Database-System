@@ -66,7 +66,7 @@ namespace StudentDBProject.WindowsScreens
                     txtCon.Text, txtAdhar.Text, txtClass.Text, roll,
                     txtSec.Text, txtLB.Text, txtBus.Text) = privateStudent;
                 txtRoll.Text = roll.ToString();
-                
+
                 //New Form Entry , Transaction, Error Information Controls are disabled
                 // so, user can't Entry a new record 
                 //but able to update recordrs already exsists.
@@ -74,18 +74,24 @@ namespace StudentDBProject.WindowsScreens
                 btnNewForm.Visibility = Visibility.Collapsed;
                 lblStatus.Visibility = Visibility.Hidden;
                 PI.Visibility = Visibility.Collapsed;
-                
             }
         }
 
         private void TxtAdhar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string te = txtAdhar.Text;
-            if (te.Length == 4)
+            if (!txtAdhar.Text.EndsWith("-"))
             {
-                txtAdhar.Text = txtAdhar.Text + "-";
-                txtAdhar.CaretIndex = 5;
+                string te = txtAdhar.Text;
+                string nonUnder = te;
+                if (te.Contains("-"))
+                    nonUnder = te.Replace("-", "");
+                if (nonUnder.Length % 4 == 0 && te.Length < 19)
+                {
+                    txtAdhar.Text = te + "-";
+                    txtAdhar.CaretIndex = te.Length + 1;
+                }
             }
+            PI.UpdateChecking();
         }
 
 
@@ -105,7 +111,7 @@ namespace StudentDBProject.WindowsScreens
         {
 
             string _roll = txtRoll.Text;
-            if (txtRoll.Text.Length !=0 && int.Parse(txtRoll.Text) < 10)
+            if (txtRoll.Text.Length != 0 && int.Parse(txtRoll.Text) < 10)
                 _roll = "0" + int.Parse(txtRoll.Text);
             id = txtClass.Text + _roll + txtSec.Text;
             busid = id + "B";
@@ -152,6 +158,8 @@ namespace StudentDBProject.WindowsScreens
 
         bool ClassCheck() => StudentInfoVerification.IsClassIDValid(txtClass.Text);
 
+        bool AadharCheck() => StudentInfoVerification.IsAadharValid(txtAdhar.Text);
+
         void PopulateErrorActionList()
         {
             DataEntryErrorInfoClass NameError =
@@ -162,12 +170,15 @@ namespace StudentDBProject.WindowsScreens
                 new DataEntryErrorInfoClass("Address should be valid", AddressCheck);
             DataEntryErrorInfoClass ContactNumberError =
                 new DataEntryErrorInfoClass("Contatct must be 10 digits.\nChracters are't allowed", ContactCheck);
+            DataEntryErrorInfoClass AadharNumberError =
+               new DataEntryErrorInfoClass("Enter Valid Aadhar number", AadharCheck);
             DataEntryErrorInfoClass ClassIDError =
                 new DataEntryErrorInfoClass("Class format must macth Pre-defined structure\n(CODE[A-Z])(BATCH[01-99])(YEAR)", ClassCheck);
             dts.Add(NameError);
             dts.Add(FatherNameError);
             dts.Add(AddressError);
             dts.Add(ContactNumberError);
+            dts.Add(AadharNumberError);
             dts.Add(ClassIDError);
         }
 

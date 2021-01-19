@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens.MicroControls"
              mc:Ignorable="d" 
-             d:DesignHeight="300"  d:DesignWidth="200">
+             d:DesignHeight="200"  d:DesignWidth="200">
     <Grid Name="seatGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

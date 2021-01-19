@@ -13,14 +13,25 @@ namespace StudentDBProject.WindowsScreens
     public partial class SearchWindow : UserControl
     {
         private int preIndex = 1;
+        private string fillterText = "";
 
         public SearchWindow()
         {
             InitializeComponent();
             SetTheme(); // Set theme for this control.
-            if (ConnectionClass.Utype != "Admin")
+            if (ConnectionClass.UserType != "Admin")
                 btnDeleteRecord.Visibility = Visibility.Collapsed; //hide delete record button if user is not admin.
             LoadList(); // Load itemBox with student info.
+        }
+
+        public SearchWindow(string text, STUDENTFILLTER fl)
+        {
+            InitializeComponent();
+            fillterText = text;
+            SetTheme(); // Set theme for this control.
+            if (ConnectionClass.UserType != "Admin")
+                btnDeleteRecord.Visibility = Visibility.Collapsed; //hide delete record button if user is not admin.
+            ApplyFillter(fl); // Load itemBox with student info.
         }
 
         private void SetTheme()
@@ -32,7 +43,6 @@ namespace StudentDBProject.WindowsScreens
             btnUpdateRcord.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             btnSearch.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
         }
-
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
@@ -73,10 +83,23 @@ namespace StudentDBProject.WindowsScreens
         {
             txtIDNumber.Text = s;
             // Show Four Search Output Screen
-            StudentEntryScreen StudentDetails = new StudentEntryScreen(s);
-            BookPerIdScreen bp = new BookPerIdScreen(s);
-            InstallmentPerId ip = new InstallmentPerId(s);
-            MiniBusInfo busInfo = new MiniBusInfo(s);
+            StudentEntryScreen StudentDetails = new StudentEntryScreen(s) {
+                HorizontalAlignment = HorizontalAlignment.Left,
+                Width = 500,
+                Margin= new Thickness(0,0,10,0),
+            };
+            BookPerIdScreen bp = new BookPerIdScreen(s) {
+                HorizontalAlignment = HorizontalAlignment.Left,
+                Margin = new Thickness(0, 0, 10, 0),
+            };
+            InstallmentPerId ip = new InstallmentPerId(s) {
+                HorizontalAlignment = HorizontalAlignment.Left,
+                Margin = new Thickness(0, 0, 10, 0),
+            };
+            MiniBusInfo busInfo = new MiniBusInfo(s) {
+                HorizontalAlignment = HorizontalAlignment.Left,
+                  Margin= new Thickness(0,0,10,0),
+            };
             resultPan.Children.Clear();
             resultPan.Children.Add(StudentDetails);
             resultPan.Children.Add(bp);
@@ -91,6 +114,22 @@ namespace StudentDBProject.WindowsScreens
             //Add items to the list
             listStudent.Items.Clear();
             List<Student> los = Student.GetAllStudent();
+            foreach (Student st in los)
+            {
+                StudentSmallDetails smD = new StudentSmallDetails(st.studentId, st.studentName,
+                    st.section, st.ClassName,
+                    st.RollNumber.ToString(), st.phone);
+                listStudent.Items.Add(smD);
+            }
+        }
+
+        private void ApplyFillter(STUDENTFILLTER fill)
+        {
+            //Update Count
+            lblNoOfStudents.Content = Student.applyFillter(fillterText, fill).Count.ToString() + " Students Found";
+            //Add items to the list
+            listStudent.Items.Clear();
+            List<Student> los = Student.applyFillter(fillterText, fill);
             foreach (Student st in los)
             {
                 StudentSmallDetails smD = new StudentSmallDetails(st.studentId, st.studentName,

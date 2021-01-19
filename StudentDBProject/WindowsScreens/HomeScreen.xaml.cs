@@ -36,7 +36,7 @@ namespace StudentDBProject.WindowsScreens
                 tt.Background = new SolidColorBrush(Colors.Transparent);
                 tt.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             }
-            txtUserName.Text = "Hola " + ConnectionClass.Utype + ", " + usr + "!";
+            txtUserName.Text = "Hola " + ConnectionClass.UserType + ", " + usr + "!";
             Closed += HomeScreen_Closed;
             ArmTabs();
         }
@@ -160,8 +160,8 @@ namespace StudentDBProject.WindowsScreens
                             "Search", new SearchStudentMiniControl(),
                             cancleButtonText: "Close", isActionButtonHiden: true)
                         {
-                            Width = 450,
-                            Height = 250
+                            Width = 820,
+                            Height = 600
                         }
                         ;
                         i.ShowDialog();

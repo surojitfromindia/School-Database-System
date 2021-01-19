@@ -37,7 +37,7 @@ namespace StudentDBProject.Models
         public bool Create()
         {
             string commandString = "insert into Library values(@sid, @lid, @bname, @idate, @rdate, 0,'Hold')";
-            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", sid);
             cmd.Parameters.AddWithValue("@lid", sid + "L");
             cmd.Parameters.AddWithValue("@bname", bname);
@@ -50,13 +50,13 @@ namespace StudentDBProject.Models
         public static bool Update(Library newLib)
         {
             //First Delete
-            OleDbCommand cmd0 = new OleDbCommand("delete from Library where SId = @sid and IDate = (select max(IDate) from Library where SId = @sid)", ConnectionClass.publicConnection);
+            OleDbCommand cmd0 = new OleDbCommand("delete from Library where SId = @sid and IDate = (select max(IDate) from Library where SId = @sid)", ConnectionClass.PublicConnection);
             cmd0.Parameters.AddWithValue("@sid", newLib.sid);
             int i0 = cmd0.ExecuteNonQuery();
 
             //Then Add again
             string commandString = "insert into Library values(@sid, @lid, @bname, @idate, @rdate, @fine,'Returned')";
-            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", newLib.sid);
             cmd.Parameters.AddWithValue("@lid", newLib.sid + "L");
             cmd.Parameters.AddWithValue("@bname", newLib.bname);
@@ -71,7 +71,7 @@ namespace StudentDBProject.Models
         {
             Library s = null;
             string commandString = "select * from Library where SId = @sid and IDate = (select max(IDate) from Library where SId = @sid)";
-            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(commandString, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", studenID);
             OleDbDataReader rd = cmd.ExecuteReader();
             while (rd.Read())
@@ -96,7 +96,7 @@ namespace StudentDBProject.Models
 
             List<Library> sl = new List<Library>();
             string ss = "select * from Library where SId = @sid ";
-            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.publicConnection);
+            OleDbCommand cmd = new OleDbCommand(ss, ConnectionClass.PublicConnection);
             cmd.Parameters.AddWithValue("@sid", studenID);
             OleDbDataReader rd = cmd.ExecuteReader();
             while (rd.Read())

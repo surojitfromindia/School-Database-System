@@ -1,4 +1,5 @@
 ﻿using StudentDBProject.Models;
+using StudentDBProject.Models.SearchModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,8 @@ namespace StudentDBProject.WindowsScreens.MiniControls
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Clicked");
+            ccHold.Content = null;
+            ccHold.Content = SearchModel.ExcuteCommand(txtIDNumber.Text);
         }
     }
 }

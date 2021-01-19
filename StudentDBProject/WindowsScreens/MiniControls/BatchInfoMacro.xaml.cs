@@ -33,14 +33,14 @@ namespace StudentDBProject.WindowsScreens.MiniControls
         {
             string selectedBatch = comBatch.Text;
             k.Clear();
-            Student.GetAllStudent(selectedBatch).ForEach((t) => k.Add(t.studentId));
+            Student.applyFillter(selectedBatch,STUDENTFILLTER.CLASS).ForEach((t) => k.Add(t.studentId));
             ssv = new StudentSeatingVisual(30, k);
             ssv.OnSeatItemClick += Ssv_OnSeatItemClick;
             seatVisual.Content = ssv;
         }
         private void SetTheme()
         {
-            card.Background = new SolidColorBrush(ThemeColor.currentAcColor);
+            Background = new SolidColorBrush(ThemeColor.currentAcColor);
             Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
         }
         private void Ssv_OnSeatItemClick(object sender, MouseButtonEventArgs e)
@@ -66,6 +66,7 @@ namespace StudentDBProject.WindowsScreens.MiniControls
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
             ccPreBodyIfno.Content = null;
+            seatVisual.Content = null;
         }
     }
 }

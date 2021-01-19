@@ -10,7 +10,7 @@ namespace StudentDBProject.Models
     static class ThemeColor
     {
 
-        public static Color currentAcColor = ChangeAccentColor(ColorCode.CoolBlue);
+        public static Color currentAcColor = ChangeAccentColor(ColorCode.Mint);
         public static Color currentFontColor = ChangeFontColor(ColorCode.Light);
         public static Color currentBackgroundColor = ChangeBackgroundColor(ColorCode.Light); //Only: Light, Dark
 
