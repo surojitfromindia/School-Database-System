@@ -27,7 +27,6 @@ namespace StudentDBProject.WindowsScreens
         {
             InitializeComponent();
 
-            accHandler.Background = new SolidColorBrush(ThemeColor.currentAcColor);
             Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
             Background = new SolidColorBrush(ThemeColor.currentBackgroundColor);
             foreach (UIElement t in sPan.Children)
@@ -37,6 +36,7 @@ namespace StudentDBProject.WindowsScreens
                 tt.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             }
             txtUserName.Text = "Hola " + ConnectionClass.UserType + ", " + usr + "!";
+            txtUserName.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             Closed += HomeScreen_Closed;
             ArmTabs();
         }
@@ -126,8 +126,8 @@ namespace StudentDBProject.WindowsScreens
         private void AdS_KD(object sender, MouseEventArgs e)
         {
             Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
-            accHandler.Background = new SolidColorBrush(ThemeColor.currentAcColor);
             Background = new SolidColorBrush(ThemeColor.currentBackgroundColor);
+            txtUserName.Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
             cleanSelection();
             remainSelected();
         }
@@ -160,8 +160,8 @@ namespace StudentDBProject.WindowsScreens
                             "Search", new SearchStudentMiniControl(),
                             cancleButtonText: "Close", isActionButtonHiden: true)
                         {
-                            Width = 820,
-                            Height = 600
+                            Width = 750,
+                            Height = 700
                         }
                         ;
                         i.ShowDialog();

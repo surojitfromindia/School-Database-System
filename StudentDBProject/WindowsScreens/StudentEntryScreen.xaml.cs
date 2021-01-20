@@ -44,10 +44,10 @@ namespace StudentDBProject.WindowsScreens
         private void SetTheme()
         {
             Foreground = new SolidColorBrush(ThemeColor.currentAcColor);
-            btnNewForm.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
+            //btnNewForm.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
             btnTra.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
             btnUpdate.Foreground = new SolidColorBrush(ThemeColor.currentFontColor);
-            btnNewForm.Background = new SolidColorBrush(ThemeColor.currentAcColor);
+            //btnNewForm.Background = new SolidColorBrush(ThemeColor.currentAcColor);
             btnTra.Background = new SolidColorBrush(ThemeColor.currentAcColor);
             btnUpdate.Background = new SolidColorBrush(ThemeColor.currentAcColor);
         }
@@ -71,7 +71,7 @@ namespace StudentDBProject.WindowsScreens
                 // so, user can't Entry a new record 
                 //but able to update recordrs already exsists.
                 btnTra.Visibility = Visibility.Collapsed;
-                btnNewForm.Visibility = Visibility.Collapsed;
+                //btnNewForm.Visibility = Visibility.Collapsed;
                 lblStatus.Visibility = Visibility.Hidden;
                 PI.Visibility = Visibility.Collapsed;
             }
@@ -103,8 +103,23 @@ namespace StudentDBProject.WindowsScreens
 
         private void btnTra_Click(object sender, RoutedEventArgs e)
         {
-            Student newStudent = new Student(id, txtSname.Text, txtFName.Text, txtAdd.Text, txtCon.Text, txtAdhar.Text, txtClass.Text, int.Parse(txtRoll.Text), txtSec.Text, libid, busid);
-            lblStatus.Text = newStudent.Create().ToString();
+            Student newStudent = new Student(id, txtSname.Text,
+                txtFName.Text, txtAdd.Text, txtCon.Text,
+                txtAdhar.Text, txtClass.Text,
+                int.Parse(txtRoll.Text == "" ? "0" : txtRoll.Text),
+                txtSec.Text, libid, busid);
+
+            AlertDialogCus TransctDial = new AlertDialogCus("Update Record", 
+                subtext: "Do you want to insert this record in database.\nModification of this data is not permissiable to others", 
+                actionButtonText: "Finalize");
+
+            if (PI.UpdateChecking())
+            {
+                TransctDial.ShowDialog();
+                if (!TransctDial.IsCanceldPress)
+                { lblStatus.Text = newStudent.Create() ? "Record Inserted" : "Waiting..."; NewFrom(); }
+            }
+
         }
 
         void GenerateIDBUSLIB()

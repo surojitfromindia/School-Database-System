@@ -35,21 +35,20 @@ namespace StudentDBProject.WindowsScreens.MiniControls
             //Store All Color Options Control Here
             //When user Select/Click one of the Color Cicle
             //Reset Unselected Option will go back to their unselected dimenssion (45 x 45)
-            ColorAccentOptionEllipse = new Ellipse[] { Fire, Mint, CoolBlue, White };
+            ColorAccentOptionEllipse = new Ellipse[] { Fire, Mint, CoolBlue, DarkRose ,White, };
             ColorBackgroundOptionEllipse = new Ellipse[] { Dark, Light };
 
 
             //Set Color Circle as default controls.
             setColorsInCircle();
-            defaultBackAndAccentColor(Mint, Light);
+            defaultBackAndAccentColor(DarkRose, Light);
 
             //Color Circles Select/Click Events
-            Fire.MouseDown += onAccentColorOptionClick;
-            Mint.MouseDown += onAccentColorOptionClick;
-            CoolBlue.MouseDown += onAccentColorOptionClick;
-            White.MouseDown += onAccentColorOptionClick;
-            Dark.MouseDown += onBackgroundColorOptionClick;
-            Light.MouseDown += onBackgroundColorOptionClick;
+            ColorAccentOptionEllipse.ToList().ForEach(cA =>cA.MouseDown += onAccentColorOptionClick);
+            ColorBackgroundOptionEllipse.ToList().ForEach(cB =>cB.MouseDown += onBackgroundColorOptionClick);
+
+           
+           
 
         }
 
@@ -102,6 +101,12 @@ namespace StudentDBProject.WindowsScreens.MiniControls
                 case "CoolBlue":
                     {
                         ThemeColor.currentAcColor = ThemeColor.ChangeAccentColor(ColorCode.CoolBlue);
+                        ThemeColor.currentFontColor = ThemeColor.ChangeFontColor(ColorCode.White);
+                        break;
+                    }
+                case "DarkRose":
+                    {
+                        ThemeColor.currentAcColor = ThemeColor.ChangeAccentColor(ColorCode.DarkRose);
                         ThemeColor.currentFontColor = ThemeColor.ChangeFontColor(ColorCode.White);
                         break;
                     }

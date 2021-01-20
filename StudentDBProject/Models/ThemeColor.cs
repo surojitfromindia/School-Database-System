@@ -10,7 +10,7 @@ namespace StudentDBProject.Models
     static class ThemeColor
     {
 
-        public static Color currentAcColor = ChangeAccentColor(ColorCode.Mint);
+        public static Color currentAcColor = ChangeAccentColor(ColorCode.DarkRose);
         public static Color currentFontColor = ChangeFontColor(ColorCode.Light);
         public static Color currentBackgroundColor = ChangeBackgroundColor(ColorCode.Light); //Only: Light, Dark
 
@@ -42,6 +42,7 @@ namespace StudentDBProject.Models
                 case "Fire": p = (Color)ColorConverter.ConvertFromString("#FFC97A2A"); break;
                 case "Mint": p = (Color)ColorConverter.ConvertFromString("#FF00A871"); break;
                 case "CoolBlue": p = (Color)ColorConverter.ConvertFromString("#FF2F93F7"); break;
+                case "DarkRose": p = (Color)ColorConverter.ConvertFromString("#FFBF0077"); break;
                 case "White": p = (Color)ColorConverter.ConvertFromString("#FFFFFFFF"); break;
                 case "Dark": p = (Color)ColorConverter.ConvertFromString("#FF343434"); break;
                 case "Light": p = (Color)ColorConverter.ConvertFromString("#FFF3F3F3"); break;
@@ -52,12 +53,13 @@ namespace StudentDBProject.Models
         public static Color GetColorFromColorCode(ColorCode c)
         {
             Color p = Colors.White;
-            switch(c)
+            switch (c)
             {
                 //Add Color Here.
                 case ColorCode.Fire: p = (Color)ColorConverter.ConvertFromString("#FFC97A2A"); break;
                 case ColorCode.Mint: p = (Color)ColorConverter.ConvertFromString("#FF00A871"); break;
                 case ColorCode.CoolBlue: p = (Color)ColorConverter.ConvertFromString("#FF2F93F7"); break;
+                case ColorCode.DarkRose: p = (Color)ColorConverter.ConvertFromString("#FFBF0077"); break;
                 case ColorCode.White: p = (Color)ColorConverter.ConvertFromString("#FFFFFFFF"); break;
                 case ColorCode.Dark: p = (Color)ColorConverter.ConvertFromString("#FF343434"); break;
                 case ColorCode.Light: p = (Color)ColorConverter.ConvertFromString("#FFF3F3F3"); break;
@@ -75,5 +77,6 @@ namespace StudentDBProject.Models
         White = 4,
         Dark = 5,
         Light = 6,
+        DarkRose = 7,
     }
 }

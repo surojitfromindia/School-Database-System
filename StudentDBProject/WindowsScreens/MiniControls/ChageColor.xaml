@@ -5,16 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:StudentDBProject.WindowsScreens.MiniControls"
              mc:Ignorable="d" 
-             d:DesignHeight="80" d:DesignWidth="416">
+             d:DesignHeight="80" d:DesignWidth="542.5">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition  Width="200"/>
+            <ColumnDefinition  Width="*"/>
             <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Accent Color" FontSize="13" Margin="5,0,0,0"/>
@@ -24,15 +24,19 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Ellipse Grid.Column="0" Name="Fire" HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" Fill="#FFC99898" />
             <Ellipse Grid.Column="1" Name="Mint"   HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" Fill="#FFC99898"   />
             <Ellipse Grid.Column="2" Name="CoolBlue"   HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" Fill="#FFC99898"   />
-            <Ellipse Grid.Column="3" Name="White"   HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" Fill="#FFC99898"   />
+            <Ellipse Grid.Column="4" Name="White"   HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" Fill="#FFC99898"   />
+            <Ellipse Grid.Column="3" Name="DarkRose"   HorizontalAlignment="Center" Height="45" Width="45" VerticalAlignment="Center" Fill="#FFC99898"   />
+
         </Grid>
         <TextBlock Grid.Row="0" Grid.Column="2" Text="Background" FontSize="13" Margin="5,0,0,0"/>
         <Grid Grid.Row="1" Grid.Column="2">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

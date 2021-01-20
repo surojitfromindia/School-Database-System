@@ -5,47 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:windowsscreens="clr-namespace:StudentDBProject.WindowsScreens"
         mc:Ignorable="d"
-        Title="HomeScreen" Height="643" Width="959" 
+        Title="HomeScreen" Height="643" Width="984.5" 
          WindowStartupLocation="CenterScreen"  
         ResizeMode="CanResizeWithGrip"  BorderThickness="1" BorderBrush="#FF878787" WindowStyle="None"
         AllowsTransparency="True" KeyDown="Window_KeyDown">
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Name="accHandler" MouseLeftButtonDown="Window_MouseLeftButtonDown" Background="#FF00A871">
-            <StackPanel Margin="15">
+
+    <Grid  Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <StackPanel Margin="15" Name="accHandler" MouseLeftButtonDown="Window_MouseLeftButtonDown">
                 <!--TextBlock FontSize="13"  Text="Welcome"/-->
-                <TextBlock x:Name="txtUserName" FontSize="15" >
+                <TextBlock x:Name="txtUserName" FontSize="15" TextWrapping="Wrap" FontFamily="Segoe UI Semibold" >
                 User Name
                 </TextBlock>
             </StackPanel>
-        </StackPanel>
-        <Grid Grid.Row="1" Margin="0,0,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="160"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
             <StackPanel  x:Name="sPan"  >
-                <TextBlock x:Name="t1" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Student Information Record" FontWeight="Bold"/>
-                <TextBlock x:Name="t2" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Library Data Record" FontWeight="Bold"/>
-                <TextBlock x:Name="t3" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Installment Update" FontWeight="Bold"/>
-                <TextBlock x:Name="t4" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Bus Payment Record" FontWeight="Bold"/>
-                <TextBlock x:Name="t5" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Search On Database" FontWeight="Bold"/>
-                <TextBlock x:Name="t6" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Admin Options and Other Settings" FontWeight="Bold"/>
-                <TextBlock x:Name="t7" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Help" FontWeight="Bold"/>
-                <TextBlock x:Name="t8" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Exit" FontWeight="Bold"/>
-
+                <TextBlock x:Name="t1" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Student Information Record" FontWeight="Bold" FontFamily="Nunito SemiBold"/>
+                <TextBlock x:Name="t2" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Library Data Record" FontWeight="Bold" FontFamily="Nunito SemiBold"/>
+                <TextBlock x:Name="t3" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Installment Update" FontWeight="Bold" FontFamily="Nunito SemiBold"/>
+                <TextBlock x:Name="t4" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Bus Payment Record" FontWeight="Bold" FontFamily="Nunito SemiBold"/>
+                <TextBlock x:Name="t5" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Search On Database" FontWeight="Bold" FontFamily="Nunito SemiBold"/>
+                <TextBlock x:Name="t6" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Admin Options and Other Settings" FontWeight="Bold" FontFamily="Nunito SemiBold"/>
+                <TextBlock x:Name="t7" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Help" FontWeight="Bold" FontFamily="Nunito SemiBold"/>
+                <TextBlock x:Name="t8" Padding="15,5,5,5" TextWrapping="Wrap"  Text="Exit" FontWeight="Bold" FontFamily="Nunito SemiBold"/>
             </StackPanel>
-            <Grid   Grid.Column="1" Margin="10,0,0,0">
-                <ContentPresenter x:Name="ccPre" >
-                    <ContentPresenter.Content>
-                        <windowsscreens:WelcomeHelpScreen />
-                    </ContentPresenter.Content>
-                </ContentPresenter>
-            </Grid>
+        </StackPanel>
+        <ScrollViewer Grid.Column="1" Margin="10,10,0,0" VerticalScrollBarVisibility="Hidden">
+            <ContentPresenter x:Name="ccPre" >
+                <ContentPresenter.Content>
+                    <windowsscreens:WelcomeHelpScreen/>
+                </ContentPresenter.Content>
+            </ContentPresenter>
+        </ScrollViewer>
+        <Grid>
+
         </Grid>
     </Grid>
 </Window>

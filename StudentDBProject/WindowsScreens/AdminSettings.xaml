@@ -13,7 +13,7 @@
             <RowDefinition Height="37*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <MiniControls:ChageColor Width="375" x:Name="changeColor" HorizontalAlignment="Left" />
+            <MiniControls:ChageColor Width="519" x:Name="changeColor" HorizontalAlignment="Left" />
         </StackPanel>
       
     </Grid>
