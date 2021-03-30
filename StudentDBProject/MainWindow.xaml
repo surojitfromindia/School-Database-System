@@ -20,13 +20,13 @@
                         Manage</Run>
                 </TextBlock>
                 <TextBlock FontSize="22" Foreground="#FFFFEDCD"><Run>
-                        Data</Run>
+                        Data 2021</Run>
                 </TextBlock>
                 <TextBlock Margin="0,30,0,0" TextWrapping="Wrap" Foreground="#FFFFF9EE">
                         Manage student database, with library entry and installment payments options
                 </TextBlock>
                 <TextBlock Margin="0,30,0,0"  TextWrapping="Wrap" Foreground="#FFFFEDCD" FontWeight="Bold">
-                        Author: Surojit Paul 2019
+                        Author: Surojit Paul 2021
                 </TextBlock>
             </StackPanel>
             <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,5">
